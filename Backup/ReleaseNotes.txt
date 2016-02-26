@@ -1,0 +1,35 @@
+﻿<h3>v00.01.00</h3>
+Updated for DNN6 Form Pattern (edit and settings)
+Removed stripping of HTML content from the SearchItem description (due to lack of HTML in rss feeds)
+Fixed Installation issues for Azure websites (sql)
+Added support for DNN 6.2.* service framework
+Added support for deleting all articles
+Added support for clearing the search index
+
+<h3>v00.00.08</h3>
+Fixed issue with the Meta-Description having HTML content included.
+
+<h3>v00.00.07</h3>
+
+Moved license and release notes to TXT files.<br />
+Fixed object reference error if the Search Results module wasn't found on the Search Results page. <br />
+Added SiteMap Provider support, articles will be added to the sitemap of your DotNetNuke website. <br />
+
+<h3>v00.00.06</h3>
+
+Enabled Rich Text descriptions.<br />
+
+<h3>v00.00.05</h3>
+
+Fixed paging problem (wasn't working)<br />
+
+<h3>v00.00.04</h3>
+
+First C# only source code release<br />
+Added ability to display categories on the Article List page, defaults to True.<br />
+Added ability to edit/delete an article from the listing page.<br />
+Added edit/delete buttons on the article display page<br />
+Added delete confirmation to Delete All link found in module settings<br />
+Corrected missing resources for paging<br />
+Fixed bug where paging with 1 article would generate an error<br />
+Fixed issue with article list not properly encoding html (&amp;)<br />

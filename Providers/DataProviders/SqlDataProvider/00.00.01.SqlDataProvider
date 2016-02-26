@@ -1,0 +1,205 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+/** CREATE DNNSimpleArticle_Article Table **/
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_Article]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_Article]
+GO
+
+
+IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_Article]') and OBJECTPROPERTY(id, N'IsTable') = 1)
+	BEGIN
+		CREATE TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_Article](
+			[ID] [int] NOT NULL IDENTITY (1, 1),
+			[Title] [nvarchar](max) NULL,
+			[Description] [nvarchar](max) NULL,
+			[Body] [nvarchar](max) NULL,
+			[CreatedOnDate] [datetime] NULL,
+			[LastModifiedOnDate] [datetime] NULL,
+			[CreatedByUserID] [int] NULL,
+			[LastModifiedByUserID] [int] NULL,
+			[ModuleId] [int] NULL,
+			[ContentItemId] [int] NULL
+		 CONSTRAINT [PK_{objectQualifier}DNNSimpleArticle_Article] PRIMARY KEY CLUSTERED 
+		(
+			[ID] ASC
+		)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) 
+		) 
+	
+	END
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNSimpleArticle_Article
+	ADD CONSTRAINT FK_{objectQualifier}DNNSimpleArticle_Article_{objectQualifier}Modules FOREIGN KEY ( [ModuleID] ) 
+	REFERENCES {databaseOwner}{objectQualifier}Modules ( [ModuleID] ) ON DELETE CASCADE
+	ON UPDATE CASCADE 
+GO
+  
+ALTER TABLE {databaseOwner}{objectQualifier}DNNSimpleArticle_Article
+	ADD CONSTRAINT FK_{objectQualifier}DNNSimpleArticle_Article_{objectQualifier}ContentItems FOREIGN KEY ( [ContentItemID] ) 
+	REFERENCES {databaseOwner}{objectQualifier}ContentItems ( [ContentItemID] ) ON DELETE CASCADE
+    ON UPDATE CASCADE 
+GO
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spAddArticle]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spAddArticle
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spAddArticle
+	@ModuleId       int,
+	@Title nvarchar(MAX),
+	@Description nvarchar(MAX),
+	@Body nvarchar(MAX),
+	@CreatedOnDate	datetime,
+	@LastModifiedOnDate	datetime,
+	@LastModifiedByUserId int,
+	@CreatedByUserId int
+AS
+INSERT INTO {databaseOwner}{objectQualifier}DNNSimpleArticle_Article (
+	ModuleId,
+	Title,
+	Description,
+	Body,
+	CreatedOnDate,
+	CreatedByUserId,
+	LastModifiedOnDate,
+	LastModifiedByUserId	
+) 
+VALUES (
+	@ModuleId,
+	@Title,
+	@Description,
+	@Body,
+	@CreatedOnDate,
+	@CreatedByUserId,
+	@LastModifiedOnDate,
+	@LastModifiedByUserId
+)
+
+Select @@Identity
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spUpdateArticle]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spUpdateArticle
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spUpdateArticle
+	@ArticleId int,
+	@ModuleId int,
+	@Title nvarchar(MAX),
+	@Description nvarchar(MAX),
+	@Body nvarchar(MAX),
+	@LastModifiedOnDate datetime,
+	@LastModifiedByUserId int,
+	@ContentItemId int
+AS
+UPDATE {databaseOwner}{objectQualifier}DNNSimpleArticle_Article
+	Set ModuleId = @ModuleId,
+	Title = @Title,
+	Description = @Description,
+	Body = @Body,
+	ContentItemId = @ContentItemId,
+	LastModifiedOnDate = @LastModifiedOnDate,
+	LastModifiedByUserId = @LastModifiedByUserId	
+WHERE
+	ID = @ArticleId
+GO
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticle]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticle
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticle
+	@ArticleId int
+AS
+SELECT 
+	a.[Id],
+	a.ModuleId,
+	a.Title,
+	a.Description,
+	a.Body,
+	a.CreatedOnDate,
+	a.CreatedByUserId,
+	a.LastModifiedOnDate,
+	a.LastModifiedByUserId,
+	CI.ContentItemID,
+	CI.Content,
+	CI.ContentTypeID,
+	CI.TabiD,
+	CI.ContentKey,
+	CI.Indexed
+FROM
+	{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+	INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+WHERE 
+	ID = @ArticleId
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticles
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticles
+	@ModuleId int
+AS
+SELECT 
+	a.Id,
+	a.ModuleId,
+	a.Title,
+	a.Description,
+	a.Body,
+	a.CreatedOnDate,
+	a.CreatedByUserId,
+	a.LastModifiedOnDate,
+	a.LastModifiedByUserId,
+	CI.ContentItemID,
+	CI.Content,
+	CI.ContentTypeID,
+	CI.TabiD,
+	CI.ContentKey,
+	CI.Indexed
+FROM
+	{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+	INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+WHERE 
+	a.ModuleId = @ModuleId
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spDeleteArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spDeleteArticles
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spDeleteArticles
+	@ModuleId int
+AS
+DELETE FROM
+	{databaseOwner}{objectQualifier}DNNSimpleArticle_Article
+WHERE 
+	ModuleId = @ModuleId
+GO
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spDeleteArticle]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spDeleteArticle
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spDeleteArticle
+	@ArticleId int
+AS
+DELETE FROM
+	{databaseOwner}{objectQualifier}DNNSimpleArticle_Article
+WHERE 
+	ID = @ArticleId
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
