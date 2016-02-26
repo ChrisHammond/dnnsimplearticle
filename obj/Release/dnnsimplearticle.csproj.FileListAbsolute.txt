@@ -4,3 +4,9 @@ C:\websites\dnn8.dnndev.me\bin\dnnsimplearticle.xml
 C:\websites\dnn8.dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.dll
 C:\websites\dnn8.dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.pdb
 C:\websites\dnn8.dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.csprojResolveAssemblyReference.cache
+C:\websites\dnndev.me\bin\dnnsimplearticle.dll
+C:\websites\dnndev.me\bin\dnnsimplearticle.pdb
+C:\websites\dnndev.me\bin\dnnsimplearticle.xml
+C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.csprojResolveAssemblyReference.cache
+C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.dll
+C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.pdb
