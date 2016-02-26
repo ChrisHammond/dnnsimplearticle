@@ -219,6 +219,7 @@
     <None Include="Providers\DataProviders\SqlDataProvider\00.01.00.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />
+    <Content Include="README.MD" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controls\ArticleList.ascx" />
