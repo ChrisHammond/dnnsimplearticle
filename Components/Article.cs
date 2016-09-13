@@ -1,6 +1,6 @@
 ﻿//
 // Christoc.com - http://www.christoc.com
-// Copyright (c) 2014
+// Copyright (c) 2014-2016
 // by Christoc.com
 //
 // Originally licensed by
@@ -50,7 +50,17 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         /// The body of our article
         ///</summary>
         public string Body { get; set; }
-        
+
+        ///<summary>
+        /// Article Thumbnail Image
+        ///</summary>
+        public string ThumbImg { get; set; }
+
+        ///<summary>
+        /// Article Large Image
+        ///</summary>
+        public string LargeImg { get; set; }
+
         ///<summary>
         /// An integer for the user id of the user who created the article
         ///</summary>

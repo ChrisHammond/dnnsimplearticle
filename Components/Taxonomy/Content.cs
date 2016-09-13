@@ -1,6 +1,6 @@
 ﻿//
 // Christoc.com - http://www.christoc.com
-// Copyright (c) 2014
+// Copyright (c) 2014-2016
 // by Christoc.com
 //
 // Originally licensed by
@@ -89,6 +89,9 @@ namespace Christoc.Modules.dnnsimplearticle.Components.Taxonomy
             if (objContent == null) return;
             objContent.Content = objArticle.Title + " " + HttpUtility.HtmlDecode(objArticle.Description);
             objContent.TabID = tabId;
+
+            objContent.Metadata.Add("SimpleArticleThumbImg", objArticle.ThumbImg);
+            objContent.Metadata.Add("SimpleArticleLargeImg", objArticle.LargeImg);
 
             //TODO: removed 7/19/2012 because metadata is useless
             //delete only works if there is only one description in metadata

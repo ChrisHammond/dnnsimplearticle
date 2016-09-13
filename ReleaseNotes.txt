@@ -1,4 +1,12 @@
-﻿<h3>v00.02.01</h3>
+﻿<h3>v00.02.03</h3>
+Added ThumbImg and LargeImg properties to the Article object.
+
+<h3>v00.02.02</h3>
+This release is a basic upgrade to DNNSimpleArticle to work with DNN 8.
+
+Upgraded the Build process to use the latest build scripts and changed references for DNN8 specific items (TermsSelector deprecation)
+
+<h3>v00.02.01</h3>
 Requires DNN 7.1.0
 Added new author byline into the article view
 Modified CreatedByUser to be DisplayName instead of UserName

@@ -1,0 +1,50 @@
+﻿<h3>v00.02.01</h3>
+Requires DNN 7.1.0
+Added new author byline into the article view
+Modified CreatedByUser to be DisplayName instead of UserName
+Added H1 tag around title on Article Display
+Added H2 tag around titles on Article List
+Adjusted CSS for categories list to display inline
+Changed Target Framework to .Net 4.5
+
+
+<h3>v00.02.00</h3>
+Requires DNN 7.0.2
+Converted to DNN 7.* services layer
+Modified license to Christoc.com
+Modified the module Icon
+Replaced BuildScripts with updated scripts (based on my templates).
+Added nuget for MSBuildTasks
+
+
+<h3>v00.01.00</h3>
+Updated for DNN6 Form Pattern (edit and settings)
+Removed stripping of HTML content from the SearchItem description (due to lack of HTML in rss feeds)
+Fixed Installation issues for Azure websites (sql)
+Added support for DNN 6.2.3 service framework (for retrieving articles via web service)
+Added support for deleting all articles
+Added support for clearing the search index
+
+<h3>v00.00.08</h3>
+Fixed issue with the Meta-Description having HTML content included.
+
+<h3>v00.00.07</h3>
+Moved license and release notes to TXT files.
+Fixed object reference error if the Search Results module wasn't found on the Search Results page. 
+Added SiteMap Provider support, articles will be added to the sitemap of your DotNetNuke website. 
+
+<h3>v00.00.06</h3>
+Enabled Rich Text descriptions.
+
+<h3>v00.00.05</h3>
+Fixed paging problem (wasn't working)
+
+<h3>v00.00.04</h3>
+First C# only source code release
+Added ability to display categories on the Article List page, defaults to True.
+Added ability to edit/delete an article from the listing page.
+Added edit/delete buttons on the article display page
+Added delete confirmation to Delete All link found in module settings
+Corrected missing resources for paging
+Fixed bug where paging with 1 article would generate an error
+Fixed issue with article list not properly encoding html (&amp;)
