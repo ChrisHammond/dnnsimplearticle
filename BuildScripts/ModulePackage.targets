@@ -13,7 +13,7 @@
       <Output TaskParameter="Value" PropertyName="Version" />
     </XmlRead>
 
-    <!--in VS 2013 we exclude the packages folder -->
+    <!--in VS 2012 we exclude the packages folder -->
     <ItemGroup>
       <InstallInclude Include="**\*.ascx" Exclude="packages\**" />
       <InstallInclude Include="**\*.asmx" Exclude="packages\**" />
@@ -23,8 +23,9 @@
       <InstallInclude Include="**\*.resx" Exclude="packages\**" />
       <InstallInclude Include="**\*.aspx" Exclude="packages\**" />
       <InstallInclude Include="**\*.js" Exclude="packages\**" />
-      <InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;packages\**;" />
-      <InstallInclude Include="**\i\**" Exclude="packages\**" />
+      <InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;packages\**;**\.git\**;" />
+      <InstallInclude Include="**\images\**" Exclude="packages\**" />
+
     </ItemGroup>
 
     <ItemGroup>
@@ -35,11 +36,11 @@
       <SourceInclude Include="**\*.html" />
       <SourceInclude Include="**\*.htm" />
       <SourceInclude Include="**\*.resx" />
-      <SourceInclude Include="**\*.xml" Exclude="**\bin\**;**\obj\**;**\_ReSharper*\**;" />
+      <SourceInclude Include="**\*.xml" Exclude="**\obj\**;**\_ReSharper*\**;**\.git\**;" />
       <SourceInclude Include="**\*.aspx" />
       <SourceInclude Include="**\*.js" />
-      <SourceInclude Include="**\*.txt" Exclude="**\bin\**;**\obj\**;**\_ReSharper*\**;" />
-      <SourceInclude Include="**\i\**" />
+      <SourceInclude Include="**\*.txt" Exclude="**\obj\**;**\_ReSharper*\**;**\.git\**;" />
+      <SourceInclude Include="**\images\**" />
       <SourceInclude Include="**\*.cs" />
       <SourceInclude Include="**\Packages\**" />
       <SourceInclude Include="**\*.cs.designer" />
@@ -52,11 +53,6 @@
       <Output TaskParameter="Include" ItemName="PackageManifestFiles" />
     </CreateItem>
 
-    <!--Get all .txt files in the root, license/release and cleanup-->
-    <CreateItem Include="*.txt">
-      <Output TaskParameter="Include" ItemName="PackageTxtFiles" />
-    </CreateItem>
-    <!--
     <CreateItem Include="**\License.txt">
       <Output TaskParameter="Include" ItemName="PackageTxtFiles" />
     </CreateItem>
@@ -64,7 +60,7 @@
     <CreateItem Include="**\ReleaseNotes.txt">
       <Output TaskParameter="Include" ItemName="PackageTxtFiles" />
     </CreateItem>
--->
+
 
     <CreateItem Include="**\*.sqldataprovider">
       <Output TaskParameter="Include" ItemName="SqlDataProviderFiles" />
