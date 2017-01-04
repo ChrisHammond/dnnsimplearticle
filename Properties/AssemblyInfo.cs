@@ -1,6 +1,6 @@
 //
 // Christoc.com - http://www.christoc.com
-// Copyright (c) 2016
+// Copyright (c) 2017
 // by Christoc.com
 //
 // Originally licensed by
@@ -37,7 +37,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("2016 Christoc.com Software Solutions")]
+[assembly: AssemblyCopyright("2017 Christoc.com Software Solutions")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
