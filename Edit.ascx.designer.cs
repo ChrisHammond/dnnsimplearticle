@@ -58,6 +58,24 @@ namespace Christoc.Modules.dnnsimplearticle {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
         
         /// <summary>
+        /// lblImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblImage;
+        
+        /// <summary>
+        /// urlImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl urlImage;
+        
+        /// <summary>
         /// txtBody control.
         /// </summary>
         /// <remarks>

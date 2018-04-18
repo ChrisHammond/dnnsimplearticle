@@ -523,6 +523,24 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Edit.lblImage">
+            <summary>
+            lblImage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Edit.urlImage">
+            <summary>
+            urlImage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:Christoc.Modules.dnnsimplearticle.Edit.txtBody">
             <summary>
             txtBody control.

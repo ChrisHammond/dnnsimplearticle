@@ -1,6 +1,38 @@
 ﻿<dotnetnuke type="ResourceFile" version="5.0">
   <files>
     <file>
+      <path>Controls/App_LocalResources/</path>
+      <name>ArticleList.ascx.resx</name>
+    </file>
+    <file>
+      <path>Controls/App_LocalResources/</path>
+      <name>ArticleView.ascx.resx</name>
+    </file>
+    <file>
+      <path>scripts/</path>
+      <name>DnnSimpleArticle.js</name>
+    </file>
+    <file>
+      <path>Controls/</path>
+      <name>ArticleList.ascx</name>
+    </file>
+    <file>
+      <path>Controls/</path>
+      <name>ArticleView.ascx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Edit.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Settings.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>View.ascx.resx</name>
+    </file>
+    <file>
       <path />
       <name>Edit.ascx</name>
     </file>
@@ -23,38 +55,6 @@
     <file>
       <path />
       <name>View.ascx</name>
-    </file>
-    <file>
-      <path>App_LocalResources/</path>
-      <name>Edit.ascx.resx</name>
-    </file>
-    <file>
-      <path>App_LocalResources/</path>
-      <name>Settings.ascx.resx</name>
-    </file>
-    <file>
-      <path>App_LocalResources/</path>
-      <name>View.ascx.resx</name>
-    </file>
-    <file>
-      <path>Controls/</path>
-      <name>ArticleList.ascx</name>
-    </file>
-    <file>
-      <path>Controls/</path>
-      <name>ArticleView.ascx</name>
-    </file>
-    <file>
-      <path>Controls/App_LocalResources/</path>
-      <name>ArticleList.ascx.resx</name>
-    </file>
-    <file>
-      <path>Controls/App_LocalResources/</path>
-      <name>ArticleView.ascx.resx</name>
-    </file>
-    <file>
-      <path>scripts/</path>
-      <name>DnnSimpleArticle.js</name>
     </file>
   </files>
 </dotnetnuke>
