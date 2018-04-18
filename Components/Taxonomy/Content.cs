@@ -90,7 +90,12 @@ namespace Christoc.Modules.dnnsimplearticle.Components.Taxonomy
             objContent.Content = objArticle.Title + " " + HttpUtility.HtmlDecode(objArticle.Description);
             objContent.TabID = tabId;
 
-            objContent.Metadata.Add("SimpleArticleThumbImg", objArticle.ThumbImg);
+            //TODO: remove this shit because metadata is useless (see note from 2012) 
+
+            //objContent.Metadata.Add("SimpleArticleThumbImg", objArticle.ThumbImg);
+
+            objContent.Metadata.Set("something", "somevalue");
+
             objContent.Metadata.Add("SimpleArticleLargeImg", objArticle.LargeImg);
 
             //TODO: removed 7/19/2012 because metadata is useless

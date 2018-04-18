@@ -17,9 +17,9 @@
             </asp:Panel>
             <asp:Panel runat="server" ID="pnlAdminControls" CssClass="Normal ArticleAdmin" Visible="false">
                 <asp:LinkButton ID="lnkEdit" runat="server" ResourceKey="EditArticle.Text" CommandName="Edit"
-                    Visible="false" Enabled="false" />
+                    Visible="false" Enabled="false" CssClass="dnnPrimaryAction" />
                 <asp:LinkButton ID="lnkDelete" runat="server" ResourceKey="DeleteArticle.Text" CommandName="Delete"
-                    Visible="false" Enabled="false" />
+                    Visible="false" Enabled="false" CssClass="dnnSecondaryAction" />
             </asp:Panel>
         </asp:Panel>
     </ItemTemplate>

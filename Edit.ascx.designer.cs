@@ -73,7 +73,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl urlImage;
+        protected global::DotNetNuke.UI.UserControls.UrlControl urlImage;
         
         /// <summary>
         /// txtBody control.
