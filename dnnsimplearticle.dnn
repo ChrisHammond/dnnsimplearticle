@@ -14,7 +14,7 @@
       <releaseNotes src="ReleaseNotes.txt" />
 
       <dependencies>
-        <dependency type="CoreVersion">09.00.01</dependency>
+        <dependency type="CoreVersion">09.02.00</dependency>
         <!-- .NET 4.5 -->
         <dependency type="type">System.Reflection.ReflectionContext</dependency>
       </dependencies>
