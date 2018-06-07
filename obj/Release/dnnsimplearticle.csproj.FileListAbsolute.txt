@@ -7,8 +7,8 @@ C:\websites\dnn8.dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimple
 C:\websites\dnndev.me\bin\dnnsimplearticle.dll
 C:\websites\dnndev.me\bin\dnnsimplearticle.pdb
 C:\websites\dnndev.me\bin\dnnsimplearticle.xml
-C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.csprojResolveAssemblyReference.cache
 C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.dll
 C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.pdb
 C:\Websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.csproj.CoreCompileInputs.cache
 C:\Websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.csproj.CopyComplete
+C:\Websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Release\dnnsimplearticle.csprojAssemblyReference.cache

@@ -1,4 +1,7 @@
 ﻿<h3>v00.02.03</h3>
+Added RSS feed (URL/desktopmodules/dnnsimplearticle/sarss.aspx?moduleid=#&portalId=#)
+
+<h3>v00.02.03</h3>
 Added ThumbImg and LargeImg properties to the Article object.
 
 <h3>v00.02.02</h3>

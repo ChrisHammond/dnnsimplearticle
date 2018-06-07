@@ -32,15 +32,19 @@
 
 
         <div class="dnnFormItem">
-            <dnn:label ID="lblImage" runat="server" ControlName="urlImage" />
-            <dnn:URL ID="urlImage" runat="server" Width="325"
-                ShowFiles="true"
-                ShowUrls="false"
-                ShowTabs="false"
-                ShowLog="false"
-                ShowTrack="false"
-                Required="False"
-                ShowNewWindow="False" />
+            <asp:UpdatePanel ID="pnlImage" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <dnn:label ID="lblImage" runat="server" ControlName="urlImage" />
+                    <dnn:URL ID="urlImage" runat="server" Width="325"
+                        ShowFiles="true"
+                        ShowUrls="false"
+                        ShowTabs="false"
+                        ShowLog="false"
+                        ShowTrack="false"
+                        Required="False"
+                        ShowNewWindow="False" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
 
 
@@ -58,7 +62,7 @@
             <dnn:label ID="lblTerms" runat="server" ControlName="tsTerms" />
             <dnndep:TermsSelector ID="tsTerms" runat="server" Height="250" Width="600" AllowCustomText="true" />
         </div>
-        
+
 
     </fieldset>
 

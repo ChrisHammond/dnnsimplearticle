@@ -48,6 +48,11 @@
               <name>00.01.00.SqlDataProvider</name>
               <version>00.01.00</version>
             </script>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.02.04.SqlDataProvider</name>
+              <version>00.02.04</version>
+            </script>
           </scripts>
         </component>
 
@@ -84,7 +89,7 @@
                   <moduleControl>
                     <controlKey>Edit</controlKey>
                     <controlSrc>DesktopModules/dnnsimplearticle/Edit.ascx</controlSrc>
-                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <supportsPartialRendering>True</supportsPartialRendering>
                     <controlTitle>Edit Content</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />

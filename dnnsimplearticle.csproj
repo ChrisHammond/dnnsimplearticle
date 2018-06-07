@@ -177,6 +177,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Providers\Sitemap\Sitemap.cs" />
+    <Compile Include="sarss.aspx.cs">
+      <DependentUpon>sarss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sarss.aspx.designer.cs">
+      <DependentUpon>sarss.aspx</DependentUpon>
+    </Compile>
     <Compile Include="services\DnnSimpleArticleController.cs" />
     <Compile Include="services\DnnSimpleArticleRouteMapper.cs" />
     <Compile Include="Settings.ascx.designer.cs">
@@ -217,7 +224,7 @@
     <None Include="dnnsimplearticle.dnn" />
     <None Include="Providers\DataProviders\SqlDataProvider\00.00.03.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\00.00.07.SqlDataProvider" />
-    <Content Include="Providers\DataProviders\SqlDataProvider\00.02.03.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\00.02.04.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\00.01.00.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />
@@ -227,6 +234,7 @@
     <Content Include="Controls\ArticleList.ascx" />
     <Content Include="Controls\ArticleView.ascx" />
     <Content Include="Edit.ascx" />
+    <Content Include="sarss.aspx" />
     <Content Include="scripts\DnnSimpleArticle.js" />
     <Content Include="Settings.ascx" />
     <Content Include="View.ascx" />
