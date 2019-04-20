@@ -1,4 +1,7 @@
-﻿<h3>v00.02.03</h3>
+﻿<h3>v00.02.05</h3>
+Compiled against DNN 9.3.1 to try to address time stamp problems with RSS.
+
+<h3>v00.02.04</h3>
 Added RSS feed (URL/desktopmodules/dnnsimplearticle/sarss.aspx?moduleid=#&portalId=#)
 
 <h3>v00.02.03</h3>

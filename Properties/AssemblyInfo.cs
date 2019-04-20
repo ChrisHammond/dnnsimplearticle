@@ -1,6 +1,6 @@
 //
 // Christoc.com - http://www.christoc.com
-// Copyright (c) 2018
+// Copyright (c) 2019
 // by Christoc.com
 //
 // Originally licensed by
@@ -37,7 +37,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("2018 Christoc.com Software Solutions")]
+[assembly: AssemblyCopyright("2019 Christoc.com Software Solutions")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
@@ -53,7 +53,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("00.02.04.*")]
+[assembly: AssemblyVersion("00.02.05.*")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]

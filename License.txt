@@ -1,6 +1,6 @@
 ﻿<em>
 Christoc.com - http://www.christoc.com
-Copyright (c) 2018 by Christoc.com Software Solutions
+Copyright (c) 2019 by Christoc.com Software Solutions
 
 Originally (MIT) licensed by 
 DotNetNuke - http://www.dotnetnuke.com
