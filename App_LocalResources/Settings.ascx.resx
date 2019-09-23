@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConfirmDelete.Text" xml:space="preserve">
     <value>Are you sure you want to delete ALL Articles for this module? There is no going back.</value>
@@ -163,21 +163,27 @@
     <value>Clear All (caution)</value>
   </data>
   <data name="AdminTools.Text" xml:space="preserve">
-	     <value>Admin Tools</value>
-	   </data>
+    <value>Admin Tools</value>
+  </data>
   <data name="AdvancedSettings.Text" xml:space="preserve">
-	     <value>Advanced Settings</value>
-	   </data>
+    <value>Advanced Settings</value>
+  </data>
   <data name="lblCleanRss.Help" xml:space="preserve">
-	     <value>By default all HTML for an article will be passed to the RSS Feed. Check this box to have all HTML stripped before generating the RSS Feed.</value>
-	   </data>
+    <value>By default all HTML for an article will be passed to the RSS Feed. Check this box to have all HTML stripped before generating the RSS Feed.</value>
+  </data>
   <data name="lblCleanRss.Text" xml:space="preserve">
-	     <value>Clean RSS</value>
-	   </data>
+    <value>Clean RSS</value>
+  </data>
   <data name="lblFullArticleRss.Help" xml:space="preserve">
-	     <value>By default the module will only submit the Description for an article to the RSS feed. Checking this box will enable the full article text to be submitted.</value>
-	   </data>
+    <value>By default the module will only submit the Description for an article to the RSS feed. Checking this box will enable the full article text to be submitted.</value>
+  </data>
   <data name="lblFullArticleRss.Text" xml:space="preserve">
-	     <value>Full Text RSS</value>
-	   </data>
+    <value>Full Text RSS</value>
+  </data>
+  <data name="lblDisplayType.Help" xml:space="preserve">
+    <value>Choose a display type for the article list.</value>
+  </data>
+  <data name="lblDisplayType.Text" xml:space="preserve">
+    <value>Display Type</value>
+  </data>
 </root>

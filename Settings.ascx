@@ -27,6 +27,15 @@
         <dnn:label ID="lblCleanRss" runat="server" ControlName="chkCleanRss"></dnn:label>
         <asp:CheckBox ID="chkCleanRss" runat="server" />
     </div>
+    <div class="dnnFormItem">
+        <dnn:label ID="lblDisplayType" runat="server" ControlName="ddlDisplayType" />
+        <asp:DropDownList runat="server" ID ="ddlDisplayType">
+            <asp:ListItem Text="Article List" Value="ArticleList" ></asp:ListItem>
+            <asp:ListItem Text="Flexible List" Value="FlexibleList" ></asp:ListItem>
+
+        </asp:DropDownList>
+    </div>
+
 </fieldset>
 <h2 id="H2" class="dnnFormSectionHead">
     <a href="" class="dnnSectionExpanded">

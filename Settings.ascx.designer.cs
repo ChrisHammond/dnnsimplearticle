@@ -19,7 +19,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPageSize;
+        protected global::System.Web.UI.UserControl lblPageSize;
         
         /// <summary>
         /// txtPageSize control.
@@ -37,7 +37,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowCategories;
+        protected global::System.Web.UI.UserControl lblShowCategories;
         
         /// <summary>
         /// chkShowCategories control.
@@ -55,7 +55,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblFullArticleRss;
+        protected global::System.Web.UI.UserControl lblFullArticleRss;
         
         /// <summary>
         /// chkFullArticleRss control.
@@ -73,7 +73,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblCleanRss;
+        protected global::System.Web.UI.UserControl lblCleanRss;
         
         /// <summary>
         /// chkCleanRss control.
@@ -85,13 +85,31 @@ namespace Christoc.Modules.dnnsimplearticle {
         protected global::System.Web.UI.WebControls.CheckBox chkCleanRss;
         
         /// <summary>
+        /// lblDisplayType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblDisplayType;
+        
+        /// <summary>
+        /// ddlDisplayType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDisplayType;
+        
+        /// <summary>
         /// lblDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblDelete;
+        protected global::System.Web.UI.UserControl lblDelete;
         
         /// <summary>
         /// lnkDeleteAll control.
@@ -109,7 +127,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblRemoveSearchIndex;
+        protected global::System.Web.UI.UserControl lblRemoveSearchIndex;
         
         /// <summary>
         /// lnkRemoveSearchIndex control.

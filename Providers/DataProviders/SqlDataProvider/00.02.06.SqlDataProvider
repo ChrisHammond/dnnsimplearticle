@@ -22,10 +22,10 @@ CREATE TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_Template]
 	TemplateName nvarchar(50) NOT NULL,
 	TemplateContent nvarchar(MAX) NOT NULL,
 	TemplateTypeId int NOT NULL,
-	CreatedDate datetime NOT NULL,
-	CreatedBy int NULL,
-	LastUpdatedDate date NOT NULL,
-	LastUpdatedBy int NULL
+	CreatedOnDate datetime NOT NULL,
+	CreatedByUserId int NULL,
+	LastModifiedOnDate date NOT NULL,
+	LastModifiedByUserId int NULL
 	)  ON [PRIMARY]
 	 TEXTIMAGE_ON [PRIMARY]
 GO
@@ -54,7 +54,7 @@ VALUES
 	GO
 
 
-	IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticles
 GO
 
@@ -112,3 +112,28 @@ AS
    END
 GO
 
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetTemplate]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetTemplate
+GO
+
+
+CREATE PROCEDURE dbo.DNNSimpleArticle_spGetTemplate
+	@TemplateId int
+AS
+SELECT 
+	t.Id,
+	t.TemplateName,
+	T.TemplateContent,
+	T.TemplateTypeId,
+	T.CreatedOnDate,
+	T.CreatedByUserId,
+	T.LastModifiedOnDate,
+	t.LastModifiedByUserId
+
+FROM
+	dbo.DNNSimpleArticle_Template t
+	
+WHERE 
+	ID = @TemplateId
+GO

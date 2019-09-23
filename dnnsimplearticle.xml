@@ -240,6 +240,131 @@
             </summary>
             <param name="objContent"></param>
         </member>
+        <member name="T:Christoc.Modules.dnnsimplearticle.Components.Templates.TemplateController">
+            <summary>
+             ArticleController provides the implementation of methods for our article
+            </summary>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.Templates.TemplateController.GetTemplate(System.Int32)">
+            <summary>
+             Get an individual article
+            </summary>
+            <param name="templateId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Christoc.Modules.dnnsimplearticle.Components.Templates.Template">
+            <summary>
+             The Article object for use in our article module
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.Id">
+            <summary>
+             Id is the identifier for our teplates, it matches up to the ID column in the database
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.TemplateName">
+            <summary>
+             Template Name
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.TemplateContent">
+            <summary>
+             A template content
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.TemplateTypeId">
+            <summary>
+             The Template Type Id
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.LastModifiedByUserId">
+            <summary>
+             An integer for the user id of the user who last updated the template
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.CreatedOnDate">
+            <summary>
+             The date the template was created
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.LastModifiedOnDate">
+            <summary>
+             The date the template was updated
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.ModuleId">
+            <summary>
+             The ModuleId of where the template was created and gets displayed
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.PortalId">
+            <summary>
+             The portal where the template resides
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.CreatedByUser">
+            <summary>
+             The username of the user who created the template
+            </summary>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.LastUpdatedByUser">
+            <summary>
+             The username of the user who last updated the template
+            </summary>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.Fill(System.Data.IDataReader)">
+            <summary>
+            
+            </summary>
+            <param name="dr"></param>
+        </member>
+        <member name="P:Christoc.Modules.dnnsimplearticle.Components.Templates.Template.KeyID">
+            <summary>
+            Gets and sets the Key ID
+            </summary>
+            <returns>An Integer</returns>
+        </member>
+        <member name="T:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList">
+            <summary>
+             A simple control that binds a list of articles
+            </summary>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.rptArticleList">
+            <summary>
+            rptArticleList control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.pnlPaging">
+            <summary>
+            pnlPaging control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.lnkPrevious">
+            <summary>
+            lnkPrevious control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.lnkNext">
+            <summary>
+            lnkNext control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="T:Christoc.Modules.dnnsimplearticle.Controls.ArticleList">
             <summary>
              A simple control that binds a list of articles
@@ -440,6 +565,13 @@
             <summary>delete all articles for a module id
             </summary>
             <param name="moduleId"></param>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Data.DataProvider.GetTemplate(System.Int32)">
+            <summary>
+             Abstract for getting a single template
+            </summary>
+            <param name="templateId"></param>
+            <returns></returns>
         </member>
         <member name="T:Christoc.Modules.dnnsimplearticle.Data.SqlDataProvider">
             -----------------------------------------------------------------------------
@@ -675,6 +807,24 @@
         <member name="F:Christoc.Modules.dnnsimplearticle.Settings.chkCleanRss">
             <summary>
             chkCleanRss control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Settings.lblDisplayType">
+            <summary>
+            lblDisplayType control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Settings.ddlDisplayType">
+            <summary>
+            ddlDisplayType control.
             </summary>
             <remarks>
             Auto-generated field.

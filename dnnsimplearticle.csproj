@@ -152,6 +152,15 @@
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Components\Taxonomy\Content.cs" />
     <Compile Include="Components\Taxonomy\Terms.cs" />
+    <Compile Include="Components\Templates\TemplateController.cs" />
+    <Compile Include="Components\Templates\Template.cs" />
+    <Compile Include="Controls\FlexibleList.ascx.cs">
+      <DependentUpon>FlexibleList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\FlexibleList.ascx.designer.cs">
+      <DependentUpon>FlexibleList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ArticleList.ascx.cs">
       <DependentUpon>ArticleList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,6 +228,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+    <Content Include="Controls\FlexibleList.ascx" />
     <Content Include="packages.config" />
     <None Include="Providers\DataProviders\SqlDataProvider\00.00.01.SqlDataProvider" />
     <None Include="dnnsimplearticle.dnn" />
