@@ -37,6 +37,8 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
 using DotNetNuke.Web.UI.WebControls;
 using Globals = DotNetNuke.Common.Globals;
+using Christoc.Modules.dnnsimplearticle.Components.Templates;
+using System.Text;
 
 namespace Christoc.Modules.dnnsimplearticle.Controls
 {
@@ -50,8 +52,34 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
 
             try
             {
-                rptArticleList.DataSource = ArticleController.GetArticles(ModuleId, PageSize, PageNumber);
-                rptArticleList.DataBind();
+
+                FlexibleListWrapper.Attributes.Add("class","row template-" + 1);
+
+
+                //TODO: get the template
+                var t = TemplateController.GetTemplate(1);
+                var sb = new StringBuilder();
+                
+                //get the articles
+                var arts = ArticleController.GetArticles(ModuleId, PageSize, PageNumber);
+
+                //templatize the articles
+                foreach(var a in arts)
+                {
+                    var newT = string.Empty;
+                    newT = t.TemplateContent.ToString();
+                    newT = newT.Replace("[TITLE]", a.Title);
+                    newT = newT.Replace("[ID]", a.ArticleId.ToString());
+                    newT = newT.Replace("[IMGURL]", a.ImageUrl);
+                    newT = newT.Replace("[CREATEDONDATE]", a.CreatedOnDate.ToString());
+                    newT = newT.Replace("[URL]", ArticleController.GetArticleLink(TabId, Convert.ToInt32(a.ArticleId)));
+                    sb.Append(newT);
+                }
+
+                var l = new Literal();
+                l.Text = sb.ToString();
+                //TODO: render the articles
+                phFlexibleList.Controls.Add(l);
             }
             catch (Exception exc)
             {
@@ -59,128 +87,8 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
             }
         }
 
-        private void BuildPageList(int totalItems)
-        {
-            float numberOfPages = totalItems / (float)PageSize;
-            int intNumberOfPages = Convert.ToInt32(numberOfPages);
-            if (numberOfPages > intNumberOfPages)
-            {
-                intNumberOfPages++;
-            }
-
-            NameValueCollection queryString = Request.QueryString;
-            SetPagingLink(queryString, lnkNext, PageNumber + 1 < intNumberOfPages, PageNumber + 1, TabId);
-            SetPagingLink(queryString, lnkPrevious, PageNumber - 1 > -1, PageNumber - 1, TabId);
-        }
-
-        private static void SetPagingLink(NameValueCollection queryString
-            , HyperLink link, bool showLink, int linkedPageId, int tabId)
-        {
-            if (showLink)
-            {
-                link.Visible = true;
-                queryString = new NameValueCollection(queryString);
-                queryString["p"] = linkedPageId.ToString(CultureInfo.InvariantCulture);
-                var additionalParameters = new List<string>(queryString.Count);
-
-                for (int i = 0; i < queryString.Count; i++)
-                {
-                    if (string.Equals(queryString.GetKey(i), "TABID", StringComparison.OrdinalIgnoreCase))
-                    {
-                        int newTabId;
-                        if (int.TryParse(queryString[i], NumberStyles.Integer, CultureInfo.InvariantCulture, out newTabId))
-                        {
-                            tabId = newTabId;
-                        }
-                    }
-                    else if (!string.Equals(queryString.GetKey(i), "LANGUAGE", StringComparison.OrdinalIgnoreCase))
-                    {
-                        additionalParameters.Add(queryString.GetKey(i) + "=" + queryString[i]);
-                    }
-                }
-
-                link.NavigateUrl = Globals.NavigateURL(tabId, string.Empty, additionalParameters.ToArray());
-            }
-            else
-            {
-                link.Visible = false;
-            }
-        }
-
-        protected void RptArticleListOnItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            //configure the Tags
-            var articleTags = e.Item.FindControl("tagsControl") as Tags;
-            var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
-            var lnkEdit = e.Item.FindControl("lnkEdit") as LinkButton;
-            var pnlAdminControls = e.Item.FindControl("pnlAdminControls") as Panel;
-            var pnlOtherControls = e.Item.FindControl("pnlOtherControls") as Panel;
-            
-            var curArticle = (Article)e.Item.DataItem;
-
-            if (articleTags != null && ShowCategories)
-            {
-                articleTags.ShowCategories = true;
-                articleTags.ShowTags = false;
-                var mc = new ModuleController();
-                
-                //look to see if the Content List module, for displaying tag results, is found
-
-                var mi = mc.GetModuleByDefinition(PortalId, "Content List");
-                if(mi!=null)
-                {
-                    articleTags.NavigateUrlFormatString = Globals.NavigateURL(mi.TabID, String.Empty, "Tag={0}");
-                    articleTags.ContentItem = Util.GetContentController().GetContentItem(curArticle.ContentItemId);
-                }
-                articleTags.DataBind();
-                if (pnlOtherControls != null) pnlOtherControls.Visible = true;
-            }
-            else
-            {
-                if (pnlOtherControls != null) pnlOtherControls.Visible = false;
-            }
-            if (articleTags!=null && articleTags.ContentItem!=null)
-            {
-                if(articleTags.ContentItem.Terms.Count<1)
-                    if (pnlOtherControls != null) pnlOtherControls.Visible = false;
-            }
-            else {
-                if (pnlOtherControls != null) pnlOtherControls.Visible = false;
-            }
-
-            if (IsEditable && lnkDelete != null && lnkEdit != null)
-            {
-                if (pnlAdminControls != null) pnlAdminControls.Visible = true;
-                lnkDelete.Visible = lnkDelete.Enabled = lnkEdit.Visible = lnkEdit.Enabled = true;
-                ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
-                lnkDelete.CommandArgument = curArticle.ArticleId.ToString();
-                lnkEdit.CommandArgument = curArticle.ArticleId.ToString();
-            }
-            else
-            {
-                if (pnlAdminControls != null) pnlAdminControls.Visible = false;
-            }
-
-            //handle paging list
-
-
-            if (curArticle.TotalRecords > PageSize)
-                BuildPageList(ArticleController.GetArticles(ModuleId, 1, 1)[0].TotalRecords);
-
-        }
-        public void RptArticleListOnItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "Delete")
-            {
-                ArticleController.DeleteArticle(Convert.ToInt32(e.CommandArgument));
-            }
-            if(e.CommandName=="Edit")
-            {
-                Response.Redirect(EditUrl(string.Empty, string.Empty, "Edit", "aid=" + e.CommandArgument));
-            }
-
-            Response.Redirect(Globals.NavigateURL());
-        }
+       
+        
 
     }
 }

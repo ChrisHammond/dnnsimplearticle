@@ -109,7 +109,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components.Templates
         public override void Fill(System.Data.IDataReader dr)
         {
             //Call the base classes fill method to populate base class properties
-            base.FillInternal(dr);
+            //base.FillInternal(dr);
 
             Id = Null.SetNullInteger(dr["Id"]);
             //ModuleId = Null.SetNullInteger(dr["ModuleId"]);

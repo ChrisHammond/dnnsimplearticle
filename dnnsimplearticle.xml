@@ -329,36 +329,18 @@
              A simple control that binds a list of articles
             </summary>
         </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.rptArticleList">
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.FlexibleListWrapper">
             <summary>
-            rptArticleList control.
+            FlexibleListWrapper control.
             </summary>
             <remarks>
             Auto-generated field.
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.pnlPaging">
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.phFlexibleList">
             <summary>
-            pnlPaging control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.lnkPrevious">
-            <summary>
-            lnkPrevious control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.lnkNext">
-            <summary>
-            lnkNext control.
+            phFlexibleList control.
             </summary>
             <remarks>
             Auto-generated field.

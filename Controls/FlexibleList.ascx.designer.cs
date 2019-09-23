@@ -13,39 +13,21 @@ namespace Christoc.Modules.dnnsimplearticle.Controls {
     public partial class FlexibleList {
         
         /// <summary>
-        /// rptArticleList control.
+        /// FlexibleListWrapper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptArticleList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl FlexibleListWrapper;
         
         /// <summary>
-        /// pnlPaging control.
+        /// phFlexibleList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlPaging;
-        
-        /// <summary>
-        /// lnkPrevious control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkPrevious;
-        
-        /// <summary>
-        /// lnkNext control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkNext;
+        protected global::System.Web.UI.WebControls.PlaceHolder phFlexibleList;
     }
 }

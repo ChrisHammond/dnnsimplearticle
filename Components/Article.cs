@@ -26,6 +26,7 @@
 using System;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Content;
+using DotNetNuke.Services.FileSystem;
 
 namespace Christoc.Modules.dnnsimplearticle.Components
 {
@@ -113,6 +114,21 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                 return LastModifiedByUserId != 0 ? DotNetNuke.Entities.Users.UserController.GetUserById(PortalId, LastModifiedByUserId).Username : Null.NullString;
             }
         }
+
+
+
+        public string ImageUrl
+        {
+            get
+            {
+                //TODO: get the url
+                int fileId = Int32.Parse(this.LargeImg.Replace("FileID=",""));
+                var fi = FileManager.Instance.GetFile(fileId);
+                return FileManager.Instance.GetUrl(fi);
+                return "/portals/0/images/test.jpg";
+            }
+        }
+
 
         ///<summary>
         /// Save the article
