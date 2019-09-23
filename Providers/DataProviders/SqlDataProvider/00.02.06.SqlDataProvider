@@ -1,0 +1,114 @@
+﻿IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_TemplateType]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_TemplateType]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_TemplateType]
+	(
+	id int NOT NULL IDENTITY (1, 1),
+	TemplateTypeName nvarchar(50) NOT NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_TemplateType] SET (LOCK_ESCALATION = TABLE)
+GO
+
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_Template]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_Template]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_Template]
+	(
+	Id int NOT NULL IDENTITY (1, 1),
+	TemplateName nvarchar(50) NOT NULL,
+	TemplateContent nvarchar(MAX) NOT NULL,
+	TemplateTypeId int NOT NULL,
+	CreatedDate datetime NOT NULL,
+	CreatedBy int NULL,
+	LastUpdatedDate date NOT NULL,
+	LastUpdatedBy int NULL
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE {databaseOwner}[{objectQualifier}DNNSimpleArticle_Template] SET (LOCK_ESCALATION = TABLE)
+GO
+
+
+INSERT INTO {databaseOwner}[{objectQualifier}DNNSimpleArticle_TemplateType]
+(
+    TemplateTypeName
+)
+VALUES
+(N'Article View' -- TemplateTypeName - nvarchar(50)
+    );
+	GO
+
+INSERT INTO {databaseOwner}[{objectQualifier}DNNSimpleArticle_TemplateType]
+(
+    TemplateTypeName
+)
+VALUES
+(N'Article List' -- TemplateTypeName - nvarchar(50)
+    );
+
+
+	GO
+
+
+	IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticles
+GO
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]
+   @ModuleId INT,
+   @PageSize INT,
+   @PageIndex INT
+AS 
+   BEGIN
+       DECLARE @RowStart INT 
+       DECLARE @RowEnd INT 
+               
+       SET @RowStart = @PageSize * @PageIndex + 1 ; 
+       SET @RowEnd = @RowStart + @PageSize - 1 ; 
+       
+       SELECT  *
+       FROM    ( SELECT    
+			a.Id,
+			a.ModuleId,
+			a.Title,
+			a.Description,
+			a.Body,
+			a.CreatedOnDate,
+			a.CreatedByUserId,
+			a.LastModifiedOnDate,
+			a.LastModifiedByUserId,
+			( SELECT    TotalRecords = COUNT(*)
+                        	FROM
+					{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+					INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+				WHERE 
+					a.ModuleId = @ModuleId
+                        ) AS TotalRecords,
+			CI.ContentItemID,
+			CI.Content,
+			CI.ContentTypeID,
+			CI.TabiD,
+			CI.ContentKey,
+			CI.Indexed,	
+			CIMt.MetaDataValue as 'ThumbImg',
+			CIMl.MetaDataValue as 'LargeImg',
+			ROW_NUMBER() OVER ( ORDER BY a.CreatedOnDate DESC) AS RowNumber
+		FROM
+			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMt on a.ContentItemId = CIMt.ContentItemID and CIMt.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleThumbImg')
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMl on a.ContentItemId = CIMl.ContentItemID and CIMl.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleLargeImg')
+
+		WHERE 
+			a.ModuleId = @ModuleId
+
+               ) AS ArticleInfo
+       WHERE   RowNumber >= @RowStart
+               AND RowNumber <= @RowEnd 
+   END
+GO
+

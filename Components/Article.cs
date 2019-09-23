@@ -144,7 +144,8 @@ namespace Christoc.Modules.dnnsimplearticle.Components
             LastModifiedByUserId = Null.SetNullInteger(dr["LastModifiedByUserId"]);
             CreatedOnDate = Null.SetNullDateTime(dr["CreatedOnDate"]);
             LastModifiedOnDate = Null.SetNullDateTime(dr["LastModifiedOnDate"]);
-
+            ThumbImg = Null.SetNullString(dr["ThumbImg"]);
+            LargeImg = Null.SetNullString(dr["LargeImg"]);
             TotalRecords = Null.SetNullInteger(dr["TotalRecords"]);
         }
 

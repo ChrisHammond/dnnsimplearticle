@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="dnnsimplearticle" type="Module" version="00.02.05">
+    <package name="dnnsimplearticle" type="Module" version="00.02.06">
       <friendlyName>dnnsimplearticle</friendlyName>
       <description>An open source articles module for DotNetNuke, from Christoc.com</description>
       <iconFile>desktopmodules/dnnsimplearticle/i/SimpleArticleLogo.jpg</iconFile>
@@ -52,6 +52,11 @@
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>00.02.04.SqlDataProvider</name>
               <version>00.02.04</version>
+            </script>
+          <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.02.06.SqlDataProvider</name>
+              <version>00.02.06</version>
             </script>
           </scripts>
         </component>
