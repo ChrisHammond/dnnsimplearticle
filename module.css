@@ -63,13 +63,16 @@
     right: 0;
     bottom: 0;
     text-align: center;
+    height: 79px;
+    margin: auto;
 
 }
 
     .template-1 a.article-inner-a h3 {
         color: #fff;
-        font-size: 1em;
+        font-size: 1.3em;
         font-weight: normal;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
     }
 
 .template-1 .article-content-inner {

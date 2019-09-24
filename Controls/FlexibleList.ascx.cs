@@ -86,9 +86,5 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
         }
-
-       
-        
-
     }
 }
