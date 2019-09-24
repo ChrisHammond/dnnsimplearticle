@@ -118,7 +118,7 @@ IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{
 GO
 
 
-CREATE PROCEDURE dbo.DNNSimpleArticle_spGetTemplate
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetTemplate
 	@TemplateId int
 AS
 SELECT 
@@ -132,8 +132,49 @@ SELECT
 	t.LastModifiedByUserId
 
 FROM
-	dbo.DNNSimpleArticle_Template t
+	{databaseOwner}{objectQualifier}DNNSimpleArticle_Template t
 	
 WHERE 
 	ID = @TemplateId
 GO
+
+
+
+INSERT INTO {databaseOwner}{objectQualifier}DNNSimpleArticle_Template
+(
+    TemplateName,
+    TemplateContent,
+    TemplateTypeId,
+    CreatedOnDate,
+    CreatedByUserId,
+    LastModifiedOnDate,
+    LastModifiedByUserId
+)
+
+VALUES
+(   N'Bootstrapped Image List',       -- TemplateName - nvarchar(50)
+    N'<article id="article-[ID]" class="article-[ID] article has-article-thumbnail col-md-4">
+    <div class="article-with-img"  style="background-image: url([IMGURL]);">
+        <div class="article-img">
+            <img src="[IMGURL]" alt="[TITLE]" />
+        </div>
+		<a href="[URL]" class="article-inner-a">
+			<div class="article-inner">
+				<div class="article-content-inner">
+					<header class="article-header-title">
+						<h3 class="article-title">[TITLE]</h3>			                
+						<div class="article-meta">
+							[CREATEDONDATE]
+						</div>
+					</header>
+				</div>			
+			</div>
+		</a>
+    </div>
+</article>',       -- TemplateContent - nvarchar(max)
+    1,         -- TemplateTypeId - int
+    GETDATE(), -- CreatedDate - datetime
+    1,         -- CreatedBy - int
+    GETDATE(), -- LastUpdatedDate - date
+    1          -- LastUpdatedBy - int
+    )
