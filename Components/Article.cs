@@ -42,7 +42,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         ///<summary>
         /// Article Title
         ///</summary>
-        public string Title{ get; set; }
+        public string Title { get; set; }
         ///<summary>
         /// A simple article description
         ///</summary>
@@ -121,11 +121,17 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         {
             get
             {
-                //TODO: get the url
-                int fileId = Int32.Parse(this.LargeImg.Replace("FileID=",""));
-                var fi = FileManager.Instance.GetFile(fileId);
-                return FileManager.Instance.GetUrl(fi);
-                return "/portals/0/images/test.jpg";
+                if (this.LargeImg != string.Empty)
+                {
+                    int fileId = Int32.Parse(this.LargeImg.Replace("FileID=", ""));
+                    var fi = FileManager.Instance.GetFile(fileId);
+                    return FileManager.Instance.GetUrl(fi);
+                }
+                else
+                {
+                    //TODO: change this to a default image?
+                    return string.Empty;
+                }
             }
         }
 

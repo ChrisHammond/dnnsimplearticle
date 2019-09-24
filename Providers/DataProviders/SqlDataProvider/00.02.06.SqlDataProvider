@@ -164,7 +164,7 @@ VALUES
 					<header class="article-header-title">
 						<h3 class="article-title">[TITLE]</h3>			                
 						<div class="article-meta">
-							[CREATEDONDATE]
+							[DESCRIPTION]
 						</div>
 					</header>
 				</div>			

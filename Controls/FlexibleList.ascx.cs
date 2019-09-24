@@ -39,6 +39,7 @@ using DotNetNuke.Web.UI.WebControls;
 using Globals = DotNetNuke.Common.Globals;
 using Christoc.Modules.dnnsimplearticle.Components.Templates;
 using System.Text;
+using System.Web;
 
 namespace Christoc.Modules.dnnsimplearticle.Controls
 {
@@ -73,6 +74,7 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                     newT = newT.Replace("[IMGURL]", a.ImageUrl);
                     newT = newT.Replace("[CREATEDONDATE]", a.CreatedOnDate.ToString());
                     newT = newT.Replace("[URL]", ArticleController.GetArticleLink(TabId, Convert.ToInt32(a.ArticleId)));
+                    newT = HttpUtility.HtmlDecode(newT.Replace("[DESCRIPTION]", a.Description));
                     sb.Append(newT);
                 }
 
