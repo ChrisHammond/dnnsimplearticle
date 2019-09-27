@@ -40,6 +40,7 @@ using Globals = DotNetNuke.Common.Globals;
 using Christoc.Modules.dnnsimplearticle.Components.Templates;
 using System.Text;
 using System.Web;
+using DotNetNuke.Entities.Tabs;
 
 namespace Christoc.Modules.dnnsimplearticle.Controls
 {
@@ -64,19 +65,29 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                 //get the articles
                 var arts = ArticleController.GetArticles(ModuleId, PageSize, PageNumber);
 
+                var totalRecords = 0;
                 //templatize the articles
                 foreach(var a in arts)
                 {
+                    var mi = ModuleController.Instance.GetTabModulesByModule(a.ModuleId);
+
                     var newT = string.Empty;
                     newT = t.TemplateContent.ToString();
                     newT = newT.Replace("[TITLE]", a.Title);
                     newT = newT.Replace("[ID]", a.ArticleId.ToString());
                     newT = newT.Replace("[IMGURL]", a.ImageUrl);
                     newT = newT.Replace("[CREATEDONDATE]", a.CreatedOnDate.ToString());
-                    newT = newT.Replace("[URL]", ArticleController.GetArticleLink(TabId, Convert.ToInt32(a.ArticleId)));
+                    newT = newT.Replace("[URL]", ArticleController.GetArticleLink(mi[0].TabID, Convert.ToInt32(a.ArticleId)));
                     newT = HttpUtility.HtmlDecode(newT.Replace("[DESCRIPTION]", a.Description));
                     sb.Append(newT);
+
+                    totalRecords = a.TotalRecords;
+
                 }
+
+                if (totalRecords > PageSize)
+                    BuildPageList(ArticleController.GetArticles(ModuleId, 1, 1)[0].TotalRecords);
+
 
                 var l = new Literal();
                 l.Text = sb.ToString();
@@ -88,5 +99,56 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
         }
+
+
+        private void BuildPageList(int totalItems)
+        {
+            float numberOfPages = totalItems / (float)PageSize;
+            int intNumberOfPages = Convert.ToInt32(numberOfPages);
+            if (numberOfPages > intNumberOfPages)
+            {
+                intNumberOfPages++;
+            }
+
+            NameValueCollection queryString = Request.QueryString;
+            SetPagingLink(queryString, lnkNext, PageNumber + 1 < intNumberOfPages, PageNumber + 1, TabId);
+            SetPagingLink(queryString, lnkPrevious, PageNumber - 1 > -1, PageNumber - 1, TabId);
+        }
+
+        private static void SetPagingLink(NameValueCollection queryString
+            , HyperLink link, bool showLink, int linkedPageId, int tabId)
+        {
+            if (showLink)
+            {
+                link.Visible = true;
+                queryString = new NameValueCollection(queryString);
+                queryString["p"] = linkedPageId.ToString(CultureInfo.InvariantCulture);
+                var additionalParameters = new List<string>(queryString.Count);
+
+                for (int i = 0; i < queryString.Count; i++)
+                {
+                    if (string.Equals(queryString.GetKey(i), "TABID", StringComparison.OrdinalIgnoreCase))
+                    {
+                        int newTabId;
+                        if (int.TryParse(queryString[i], NumberStyles.Integer, CultureInfo.InvariantCulture, out newTabId))
+                        {
+                            tabId = newTabId;
+                        }
+                    }
+                    else if (!string.Equals(queryString.GetKey(i), "LANGUAGE", StringComparison.OrdinalIgnoreCase))
+                    {
+                        additionalParameters.Add(queryString.GetKey(i) + "=" + queryString[i]);
+                    }
+                }
+
+                link.NavigateUrl = Globals.NavigateURL(tabId, string.Empty, additionalParameters.ToArray());
+            }
+            else
+            {
+                link.Visible = false;
+            }
+        }
+
+
     }
 }

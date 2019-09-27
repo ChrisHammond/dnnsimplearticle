@@ -347,6 +347,33 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.pnlPaging">
+            <summary>
+            pnlPaging control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.lnkPrevious">
+            <summary>
+            lnkPrevious control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Controls.FlexibleList.lnkNext">
+            <summary>
+            lnkNext control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="T:Christoc.Modules.dnnsimplearticle.Controls.ArticleList">
             <summary>
              A simple control that binds a list of articles

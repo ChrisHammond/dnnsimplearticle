@@ -281,6 +281,8 @@
     <Content Include="License.txt" />
     <Content Include="ReleaseNotes.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\FlexibleList.ascx.resx" />
+  </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>
