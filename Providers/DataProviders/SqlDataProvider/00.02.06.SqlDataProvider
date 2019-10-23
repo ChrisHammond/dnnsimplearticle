@@ -154,7 +154,7 @@ INSERT INTO {databaseOwner}{objectQualifier}DNNSimpleArticle_Template
 VALUES
 (   N'Bootstrapped Image List',       -- TemplateName - nvarchar(50)
     N'<article id="article-[ID]" class="article-[ID] article has-article-thumbnail col-md-4">
-    <div class="article-with-img"  style="background-image: url([IMGURL]);">
+    <div class="article-with-img"  style="background-image: url('[IMGURL]');">
         <div class="article-img">
             <img src="[IMGURL]" alt="[TITLE]" />
         </div>
