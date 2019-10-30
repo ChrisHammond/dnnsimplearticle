@@ -1,4 +1,7 @@
-﻿<h3>v00.02.06</h3>
+﻿<h3>v00.02.07</h3>
+Added PermaLink for Articles to control URL for articles.
+
+<h3>v00.02.06</h3>
 Added template for FlexibleList display type.
 
 <h3>v00.02.05</h3>

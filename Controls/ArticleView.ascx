@@ -13,7 +13,7 @@
 
 <div class="ArticleAdmin" runat="server" id="ArticleAdmin">
     <asp:LinkButton id="lnkEdit" runat="server" resourcekey="EditArticle" 
-        onclick="lnkEdit_Click" />
+        onclick="lnkEdit_Click" CssClass="btnPrimary" />
     <asp:LinkButton ID="lnkDelete" runat="server" ResourceKey="DeleteArticle" 
-        onclick="lnkDelete_Click" />
+        onclick="lnkDelete_Click" CssClass="btnSecondary" />
 </div>

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Christoc.Modules.dnnsimplearticle
-{
-
-
-    public partial class Edit
-    {
-
+namespace Christoc.Modules.dnnsimplearticle {
+    
+    
+    public partial class Edit {
+        
         /// <summary>
         /// lblTitle control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UserControl lblTitle;
-
+        
         /// <summary>
         /// txtTitle control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
-
+        
         /// <summary>
         /// rfvTitle control.
         /// </summary>
@@ -40,6 +38,33 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTitle;
+        
+        /// <summary>
+        /// lblPermaLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl lblPermaLink;
+        
+        /// <summary>
+        /// txtPermaLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPermaLink;
+        
+        /// <summary>
+        /// rfvPermaLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPermaLink;
 
         /// <summary>
         /// txtDescription control.
@@ -49,7 +74,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.TextEditor txtDescription;
-
+        
         /// <summary>
         /// rfvDescription control.
         /// </summary>
@@ -58,7 +83,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
-
+        
         /// <summary>
         /// pnlImage control.
         /// </summary>
@@ -67,7 +92,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel pnlImage;
-
+        
         /// <summary>
         /// lblImage control.
         /// </summary>
@@ -94,7 +119,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.TextEditor txtBody;
-
+        
         /// <summary>
         /// lblTerms control.
         /// </summary>
@@ -103,7 +128,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UserControl lblTerms;
-
+        
         /// <summary>
         /// tsTerms control.
         /// </summary>
@@ -112,7 +137,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.Web.UI.WebControls.TermsSelector tsTerms;
-
+        
         /// <summary>
         /// lbSave control.
         /// </summary>
@@ -121,7 +146,7 @@ namespace Christoc.Modules.dnnsimplearticle
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbSave;
-
+        
         /// <summary>
         /// lbCancel control.
         /// </summary>

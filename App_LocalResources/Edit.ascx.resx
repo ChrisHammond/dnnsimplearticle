@@ -171,4 +171,13 @@
   <data name="lblImage.Text" xml:space="preserve">
     <value>Article Image</value>
   </data>
+  <data name="lblPermaLink.Help" xml:space="preserve">
+    <value>Create a string to provide the URL for this article. It should be unique.</value>
+  </data>
+  <data name="lblPermaLink.Text" xml:space="preserve">
+    <value>PermaLink</value>
+  </data>
+  <data name="rfvPermaLink.Text" xml:space="preserve">
+    <value>PermaLink is required</value>
+  </data>
 </root>

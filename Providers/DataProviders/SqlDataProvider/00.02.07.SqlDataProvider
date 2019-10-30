@@ -1,0 +1,116 @@
+﻿IF NOT EXISTS (SELECT * FROM {databaseOwner}[{objectQualifier}MetaData] WHERE MetaDataName = 'SimpleArticlePermaLink')
+	insert into {databaseOwner}[{objectQualifier}MetaData]
+	(MetaDataName,MetaDataDescription)
+	values('SimpleArticlePermaLink','DNNSimpleArticle Module PermaLink')
+GO
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticle]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticle
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticle
+	@ArticleId int
+AS
+SELECT 
+	a.[Id],
+	a.ModuleId,
+	a.Title,
+	a.Description,
+	a.Body,
+	a.CreatedOnDate,
+	a.CreatedByUserId,
+	a.LastModifiedOnDate,
+	a.LastModifiedByUserId,
+	( SELECT    TotalRecords = COUNT(*)
+                	FROM
+			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+		WHERE 
+			a.id = @ArticleId
+                ) AS TotalRecords,
+
+	CI.ContentItemID,
+	CI.Content,
+	CI.ContentTypeID,
+	CI.TabiD,
+	CI.ContentKey,
+	CI.Indexed,
+	CIMt.MetaDataValue as 'ThumbImg',
+	CIMl.MetaDataValue as 'LargeImg',
+	CPL.MetaDataValue as 'PermaLink'
+
+FROM
+	{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+	INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMt on a.ContentItemId = CIMt.ContentItemID and CIMt.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleThumbImg')
+	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMl on a.ContentItemId = CIMl.ContentItemID and CIMl.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleLargeImg')
+	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CPL on a.ContentItemId = CIMl.ContentItemID and CIMl.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticlePermaLink')
+
+
+WHERE 
+	ID = @ArticleId
+GO
+
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticles
+GO
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]
+   @ModuleId INT,
+   @PageSize INT,
+   @PageIndex INT
+AS 
+   BEGIN
+       DECLARE @RowStart INT 
+       DECLARE @RowEnd INT 
+               
+       SET @RowStart = @PageSize * @PageIndex + 1 ; 
+       SET @RowEnd = @RowStart + @PageSize - 1 ; 
+       
+       SELECT  *
+       FROM    ( SELECT    
+			a.Id,
+			a.ModuleId,
+			a.Title,
+			a.Description,
+			a.Body,
+			a.CreatedOnDate,
+			a.CreatedByUserId,
+			a.LastModifiedOnDate,
+			a.LastModifiedByUserId,
+			( SELECT    TotalRecords = COUNT(*)
+                        	FROM
+					{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+					INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+				WHERE 
+					a.ModuleId = @ModuleId
+                        ) AS TotalRecords,
+			CI.ContentItemID,
+			CI.Content,
+			CI.ContentTypeID,
+			CI.TabiD,
+			CI.ContentKey,
+			CI.Indexed,	
+			CIMt.MetaDataValue as 'ThumbImg',
+			CIMl.MetaDataValue as 'LargeImg',
+			CPL.MetaDataValue as 'PermaLink',
+			ROW_NUMBER() OVER ( ORDER BY a.CreatedOnDate DESC) AS RowNumber
+		FROM
+			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMt on a.ContentItemId = CIMt.ContentItemID and CIMt.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleThumbImg')
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMl on a.ContentItemId = CIMl.ContentItemID and CIMl.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleLargeImg')
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CPL on a.ContentItemId = CPL.ContentItemID and CPL.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticlePermaLink')
+
+		WHERE 
+			a.ModuleId = @ModuleId
+
+               ) AS ArticleInfo
+       WHERE   RowNumber >= @RowStart
+               AND RowNumber <= @RowEnd 
+   END
+GO
+

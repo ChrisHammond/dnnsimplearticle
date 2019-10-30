@@ -24,6 +24,12 @@
     <fieldset>
 
         <div class="dnnFormItem">
+             <dnn:label ID="lblPermaLink" ControlName="txtPermaLink" runat="server" />
+            <asp:TextBox ID="txtPermaLink" runat="server" Columns="50" /><asp:RequiredFieldValidator
+                ID="rfvPermaLink" runat="server" ControlToValidate="txtPermaLink" CssClass="NormalRed" />
+        </div>
+
+        <div class="dnnFormItem">
 
             <dnn:TextEditor ID="txtDescription" runat="server" Width="100%" Height="300px" />
             <asp:RequiredFieldValidator ID="rfvDescription" runat="server" ControlToValidate="txtDescription"

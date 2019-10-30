@@ -99,6 +99,12 @@ namespace Christoc.Modules.dnnsimplearticle.Components.Taxonomy
             //save
             objContent.Metadata.Add("SimpleArticleLargeImg", objArticle.LargeImg);
 
+
+            //remove first
+            objContent.Metadata.Remove("SimpleArticlePermaLink");
+            //save
+            objContent.Metadata.Add("SimpleArticlePermaLink", objArticle.PermaLink);
+
             //TODO: removed 7/19/2012 because metadata is useless
             //delete only works if there is only one description in metadata
             //Util.GetContentController().DeleteMetaData(objContent, "Description", origArticle.Metadata["Description"]);

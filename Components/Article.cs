@@ -136,6 +136,12 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         }
 
 
+        public string PermaLink
+        {
+            get;set;
+        }
+
+
         ///<summary>
         /// Save the article
         ///</summary>
@@ -144,6 +150,9 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         {
             ArticleId = ArticleController.SaveArticle(this, tabId);
         }
+
+
+        
 
         #region IHydratable Implementation
 
@@ -168,7 +177,9 @@ namespace Christoc.Modules.dnnsimplearticle.Components
             LastModifiedOnDate = Null.SetNullDateTime(dr["LastModifiedOnDate"]);
             ThumbImg = Null.SetNullString(dr["ThumbImg"]);
             LargeImg = Null.SetNullString(dr["LargeImg"]);
+            PermaLink = Null.SetNullString(dr["PermaLink"]);
             TotalRecords = Null.SetNullInteger(dr["TotalRecords"]);
+
         }
 
         /// <summary>

@@ -237,6 +237,7 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\00.02.04.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\00.01.00.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\00.02.06.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\00.02.07.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />
     <Content Include="README.MD" />
