@@ -149,7 +149,11 @@
   <ItemGroup>
     <Compile Include="Components\Article.cs" />
     <Compile Include="Components\ArticleController.cs" />
+    <Compile Include="Components\Constants.cs" />
+    <Compile Include="Components\UrlController.cs" />
+    <Compile Include="Components\UrlProvider.cs" />
     <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="Components\FriendlyUrlInfo.cs" />
     <Compile Include="Components\Taxonomy\Content.cs" />
     <Compile Include="Components\Taxonomy\Terms.cs" />
     <Compile Include="Components\Templates\TemplateController.cs" />

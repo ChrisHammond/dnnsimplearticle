@@ -45,7 +45,7 @@ FROM
 	INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
 	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMt on a.ContentItemId = CIMt.ContentItemID and CIMt.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleThumbImg')
 	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CIMl on a.ContentItemId = CIMl.ContentItemID and CIMl.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticleLargeImg')
-	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CPL on a.ContentItemId = CIMl.ContentItemID and CIMl.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticlePermaLink')
+	LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CPL on a.ContentItemId = CPL.ContentItemID and CPL.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticlePermaLink')
 
 
 WHERE 
