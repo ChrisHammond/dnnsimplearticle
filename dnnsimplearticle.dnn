@@ -130,6 +130,18 @@
           </assemblies>
         </component>
 
+        <component type="UrlProvider">
+          <urlProvider>
+            <name>dnnSimpleArticle Url Extension Provider</name>
+            <type>Christoc.Modules.dnnsimplearticle.Components.UrlProvider</type>
+            <settingsControlSrc>DesktopModules/dnnSimpleArticle/UrlSettings.ascx</settingsControlSrc>
+            <redirectAllUrls>true</redirectAllUrls>
+            <replaceAllUrls>false</replaceAllUrls>
+            <rewriteAllUrls>false</rewriteAllUrls>
+            <desktopModule>dnnsimplearticle</desktopModule>
+          </urlProvider>
+        </component>
+        
         <component type="Config">
           <config>
             <configFile>web.config</configFile>

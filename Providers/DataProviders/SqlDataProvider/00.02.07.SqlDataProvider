@@ -114,3 +114,55 @@ AS
    END
 GO
 
+
+
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticleUrls]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticleUrls
+GO
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticleUrls]
+   @PortalId INT 
+AS 
+   BEGIN
+		SELECT    
+			a.Id,			
+			CPL.MetaDataValue as 'PermaLink'
+		FROM
+			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CPL on a.ContentItemId = CPL.ContentItemID and CPL.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticlePermaLink')
+		where
+			a.ModuleId 
+				in (Select moduleid from {databaseOwner}{objectQualifier}modules 
+					where moduledefid in (select moduledefid from {databaseOwner}{objectQualifier}moduledefinitions 
+						where definitionname = 'dnnSimpleArticle' and portalid = @PortalId))
+   END
+GO
+
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticleUrl]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticleUrl
+GO
+
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticleUrl]
+   @PortalId INT,
+   @ArticleId INT
+AS 
+   BEGIN
+		SELECT    
+			a.Id,			
+			CPL.MetaDataValue as 'PermaLink'
+		FROM
+			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
+			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
+			LEFT JOIN {databaseOwner}{objectQualifier}ContentItems_MetaData as CPL on a.ContentItemId = CPL.ContentItemID and CPL.MetaDataID = (select metadataid from {databaseOwner}{objectQualifier}MetaData where MetaDataName = 'SimpleArticlePermaLink')
+		where
+			a.ModuleId 
+				in (Select moduleid from {databaseOwner}{objectQualifier}modules 
+					where moduledefid in (select moduledefid from {databaseOwner}{objectQualifier}moduledefinitions 
+						where definitionname = 'dnnSimpleArticle' and portalid = @PortalId))
+						and a.id=@ArticleId
+   END
+GO

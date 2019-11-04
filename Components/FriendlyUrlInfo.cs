@@ -56,5 +56,6 @@ namespace Christoc.Modules.dnnsimplearticle.Components
 
     internal class FriendlyUrlInfoCol : List<FriendlyUrlInfo>
     {
+
     }
 }

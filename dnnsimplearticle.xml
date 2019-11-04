@@ -160,6 +160,70 @@
             </summary>
             <param name="moduleId"></param>
         </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.CheckForMissingItemId(System.Int32,System.String,System.Int32,Christoc.Modules.dnnsimplearticle.Components.UrlProvider,DotNetNuke.Entities.Urls.FriendlyUrlOptions,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Checks for, and adds to the indexes, a missing item.
+            </summary>
+            <param name="itemId"></param>
+            <param name="tabId"></param>
+            <param name="portalId"></param>
+            <param name="provider"></param>
+            <param name="options"></param>
+            <param name="messages"></param>
+            <returns>Valid path if found</returns>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.MakeItemFriendlyUrl(Christoc.Modules.dnnsimplearticle.Components.FriendlyUrlInfo,Christoc.Modules.dnnsimplearticle.Components.UrlProvider,DotNetNuke.Entities.Urls.FriendlyUrlOptions)">
+            <summary>
+            Creates a Friendly Url For the Item
+            </summary>
+            <param name="friendlyUrl">Object containing the relevant properties to create a friendly url from</param>
+            <param name="provider">The active module provider</param>
+            <param name="options">THe current friendly Url Options</param>
+            <returns></returns>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.GetFriendlyUrlIndex(System.Int32,Christoc.Modules.dnnsimplearticle.Components.UrlProvider,DotNetNuke.Entities.Urls.FriendlyUrlOptions)">
+            <summary>
+            Returns a friendly url index from the cache or database.
+            </summary>
+            <param name="tabId"></param>
+            <param name="portalId"></param>
+            <param name="provider"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.GetQueryStringIndex(System.Int32,Christoc.Modules.dnnsimplearticle.Components.UrlProvider,DotNetNuke.Entities.Urls.FriendlyUrlOptions,System.Boolean)">
+            <summary>
+            Return the index of all the querystrings that belong to friendly urls for the specific tab.
+            </summary>
+            <param name="tabId"></param>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.RebuildIndexes(System.Int32,Christoc.Modules.dnnsimplearticle.Components.UrlProvider,DotNetNuke.Entities.Urls.FriendlyUrlOptions)">
+            <summary>
+            REbuilds the two indexes and re-stores them into the cache
+            </summary>
+            <param name="tabId"></param>
+            <param name="portalId"></param>
+            <param name="provider"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.StoreIndexes(System.Collections.Hashtable,System.String,System.Collections.Hashtable,System.String)">
+            <summary>
+            Store the two indexes into the cache
+            </summary>
+            <param name="friendlyUrlIndex"></param>
+            <param name="friendlyUrlCacheKey"></param>
+            <param name="queryStringIndex"></param>
+            <param name="queryStringCacheKey"></param>
+        </member>
+        <member name="M:Christoc.Modules.dnnsimplearticle.Components.UrlController.GetFriendlyUrlIndexKeyForPortal(System.Int32)">
+            <summary>
+            Return the caceh key for a tab index
+            </summary>
+            <param name="portalId"></param>
+            <returns></returns>
+        </member>
         <member name="T:Christoc.Modules.dnnsimplearticle.Components.FeatureController">
             -----------------------------------------------------------------------------
             <summary>
@@ -769,6 +833,67 @@
             Page_Load runs when the control is loaded
             </summary>
             -----------------------------------------------------------------------------
+        </member>
+        <member name="T:Christoc.Modules.dnnsimplearticle.UrlSettings">
+            -----------------------------------------------------------------------------
+            <summary>
+            The Settings class manages Module Settings
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.lblUrlPath">
+            <summary>
+            lblUrlPath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.txtUrlPath">
+            <summary>
+            txtUrlPath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.lblHideArticlePagePath">
+            <summary>
+            lblHideArticlePagePath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.chkHideArticlePagePath">
+            <summary>
+            chkHideArticlePagePath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.lblArticlePage">
+            <summary>
+            lblArticlePage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.cboArticlePage">
+            <summary>
+            cboArticlePage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
         </member>
         <member name="T:Christoc.Modules.dnnsimplearticle.Settings">
             -----------------------------------------------------------------------------

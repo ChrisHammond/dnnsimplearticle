@@ -199,6 +199,10 @@
     </Compile>
     <Compile Include="services\DnnSimpleArticleController.cs" />
     <Compile Include="services\DnnSimpleArticleRouteMapper.cs" />
+    <Compile Include="UrlSettings.ascx.cs">
+      <DependentUpon>UrlSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Settings.ascx.designer.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
     </Compile>
@@ -208,6 +212,9 @@
     </Compile>
     <Compile Include="dnnsimplearticleSettingsBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UrlSettings.ascx.designer.cs">
+      <DependentUpon>UrlSettings.ascx</DependentUpon>
     </Compile>
     <Compile Include="View.ascx.designer.cs">
       <DependentUpon>View.ascx</DependentUpon>
@@ -252,6 +259,7 @@
     <Content Include="Edit.ascx" />
     <Content Include="sarss.aspx" />
     <Content Include="scripts\DnnSimpleArticle.js" />
+    <Content Include="UrlSettings.ascx" />
     <Content Include="Settings.ascx" />
     <Content Include="View.ascx" />
   </ItemGroup>
@@ -288,6 +296,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controls\App_LocalResources\FlexibleList.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\UrlSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>
