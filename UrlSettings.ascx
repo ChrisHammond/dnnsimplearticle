@@ -6,16 +6,17 @@
 test
 	<h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead"><a href="" class="dnnSectionExpanded"><%=LocalizeString("ArticleUrlProviderSettings")%></a></h2>
 	<fieldset>
-        <div class="dnnFormItem">
-            <dnn:Label ID="lblUrlPath" runat="server" ResourceKey="UrlPath" /> 
- 
-            <asp:TextBox ID="txtUrlPath" runat="server" />
-        </div>
-        <div class="dnnFormItem">
+        <div class="dnnFormItem dnnClear">
             <dnn:label ID="lblHideArticlePagePath" runat="server" ResourceKey="HideArticlePagePath"/>
             <asp:CheckBox ID="chkHideArticlePagePath" runat="server" />
         </div>
-        <div class="dnnFormItem">
+
+        <div class="dnnFormItem dnnClear">
+            <dnn:Label ID="lblDateFormat" runat="server" ResourceKey="DateFormat" /> 
+             <asp:TextBox ID="txtDateFormat" runat="server" />
+        </div>
+
+        <div class="dnnFormItem dnnClear">
             <dnn:label id="lblArticlePage" runat="server" controlname="cboArticlePage" ResourceKey="ArticlePage" />
             <dnn:DnnPageDropDownList ID="cboArticlePage" runat="server" />
         </div>

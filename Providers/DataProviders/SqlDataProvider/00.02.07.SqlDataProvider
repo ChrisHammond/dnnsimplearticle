@@ -185,7 +185,9 @@ AS
    BEGIN
 		SELECT    
 			a.Id,
-			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z]%') ELSE CPL.MetaDataValue END 			as 'PermaLink'
+			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z0-9 ]%') ELSE CPL.MetaDataValue END as 'PermaLink'
+			, a.CreatedOnDate 'CreatedOnDate'
+
 		FROM
 			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
 			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
@@ -210,7 +212,8 @@ AS
    BEGIN
 		SELECT    
 			a.Id,		
-			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z]%') ELSE CPL.MetaDataValue END 			as 'PermaLink'
+			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z0-9 ]%') ELSE CPL.MetaDataValue END as 'PermaLink'
+			, a.CreatedOnDate 'CreatedOnDate'
 		FROM
 			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
 			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID

@@ -123,16 +123,16 @@
   <data name="ArticleUrlProviderSettings.Text" xml:space="preserve">
     <value>DNN Simple Article URL Provider Settings</value>
   </data>
+  <data name="DateFormat.Help" xml:space="preserve">
+    <value>Format the Created On Date field into the URL? yyyy/MM/ for 2019/09/. Leave blank to not include. &lt;strong&gt;If you format this with a slash(es), be sure to uncheck the HIDE PAGE NAME option, or your URLs will 404&lt;/strong&gt;</value>
+  </data>
+  <data name="DateFormat.Text" xml:space="preserve">
+    <value>Date Format (optional)</value>
+  </data>
   <data name="HideArticlePagePath.Help" xml:space="preserve">
     <value>Hide the name of the article page in the URL.</value>
   </data>
   <data name="HideArticlePagePath.Text" xml:space="preserve">
     <value>Hide Page Name</value>
-  </data>
-  <data name="UrlPath.Help" xml:space="preserve">
-    <value>To prefix the articles with a specific URL Path, enter the path here. Leave blank to specificy no Url Path.</value>
-  </data>
-  <data name="UrlPath.Text" xml:space="preserve">
-    <value>Article Url Path Prefix</value>
   </data>
 </root>

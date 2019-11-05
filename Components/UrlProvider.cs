@@ -177,10 +177,11 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                     }
                     queryStringIndex = UrlController.GetQueryStringIndex(portalId, this, options, false);
                     List<string> keepParms = new List<string>();
-                    //iterate backwards through the collection of params
+                    
+                    //TODO: look at making this work for date format/path, will need to figure out how to regex match then pull the date formated content out, this might fix the URL issues for not including the page name
                     string lookupPath = path;
-                    if (string.IsNullOrEmpty(UrlPath) == false && lookupPath.StartsWith(UrlPath))
-                        lookupPath = lookupPath.Substring(UrlPath.Length);
+                    //if (string.IsNullOrEmpty(UrlPath) == false && lookupPath.StartsWith(UrlPath))
+                    //    lookupPath = lookupPath.Substring(UrlPath.Length);
 
                     for (int i = urlParms.GetUpperBound(0); i >= 0; i--)
                     {
@@ -279,12 +280,13 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                 return hideArticlePagePath;
             }
         }
-        internal string UrlPath
+       
+        internal string UrlDateFormat
         {
             get
             {
-                string urlPath = GetSafeString(Constants.UrlPathSettingName, "");
-                return urlPath;
+                string urlDateFormat = GetSafeString(Constants.UrlDateFormatSettingName, "");
+                return urlDateFormat;
 
             }
         }

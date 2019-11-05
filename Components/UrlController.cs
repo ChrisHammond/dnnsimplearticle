@@ -53,7 +53,16 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         {
             //calls back up the module provider to utilise the CleanNameForUrl method, which creates a safe Url using the current Friendly Url options.
             string friendlyUrlPath = provider.CleanNameForUrl(friendlyUrl.UrlFragment1, options);
-            return friendlyUrlPath;
+
+            //create the year/month stub setting
+
+            var urlStub = string.Empty;
+            if (provider.UrlDateFormat != string.Empty)
+            {
+                urlStub = DateTime.Parse(friendlyUrl.UrlFragment2).ToString(provider.UrlDateFormat);
+            }
+
+            return urlStub + friendlyUrlPath;
         }
         /// <summary>
         /// Returns a friendly url index from the cache or database.

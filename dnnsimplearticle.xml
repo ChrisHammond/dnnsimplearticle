@@ -841,24 +841,6 @@
             </summary>
             -----------------------------------------------------------------------------
         </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.lblUrlPath">
-            <summary>
-            lblUrlPath control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.txtUrlPath">
-            <summary>
-            txtUrlPath control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.lblHideArticlePagePath">
             <summary>
             lblHideArticlePagePath control.
@@ -871,6 +853,24 @@
         <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.chkHideArticlePagePath">
             <summary>
             chkHideArticlePagePath control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.lblDateFormat">
+            <summary>
+            lblDateFormat control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.UrlSettings.txtDateFormat">
+            <summary>
+            txtDateFormat control.
             </summary>
             <remarks>
             Auto-generated field.

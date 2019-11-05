@@ -13,24 +13,6 @@ namespace Christoc.Modules.dnnsimplearticle {
     public partial class UrlSettings {
         
         /// <summary>
-        /// lblUrlPath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblUrlPath;
-        
-        /// <summary>
-        /// txtUrlPath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUrlPath;
-        
-        /// <summary>
         /// lblHideArticlePagePath control.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,24 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkHideArticlePagePath;
+        
+        /// <summary>
+        /// lblDateFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblDateFormat;
+        
+        /// <summary>
+        /// txtDateFormat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateFormat;
         
         /// <summary>
         /// lblArticlePage control.
