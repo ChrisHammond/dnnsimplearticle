@@ -24,3 +24,7 @@ E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Release\dnnsimplea
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Release\dnnsimplearticle.csproj.CoreCompileInputs.cache
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Release\dnnsimplearticle.dll
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Release\dnnsimplearticle.pdb
+E:\websites\932.dnndev.me\bin\dnnsimplearticle.dll
+E:\websites\932.dnndev.me\bin\dnnsimplearticle.pdb
+E:\websites\932.dnndev.me\bin\dnnsimplearticle.xml
+E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Release\dnnsimplearticle.csproj.CopyComplete

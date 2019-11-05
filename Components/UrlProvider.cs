@@ -20,29 +20,34 @@ namespace Christoc.Modules.dnnsimplearticle.Components
 
         public override string ChangeFriendlyUrl(TabInfo tab, string friendlyUrlPath, FriendlyUrlOptions options, string cultureCode, ref string endingPageName, out bool useDnnPagePath, ref List<string> messages)
         {
-
+            //set default values for out parameters
+            useDnnPagePath = true;
+            if (messages == null) messages = new List<string>();
+            //check if we want to try and modify this Url
+            //first check to see if this Url is an 'edit' Url - something that loads a module-specific page.
+            //we don't want to mess with these, because they're always permissions based Urls and thus
+            //no need to be friendly
             if (string.IsNullOrEmpty(friendlyUrlPath) == false && Regex.IsMatch(friendlyUrlPath, @"(^|/)(mid|moduleId)/\d+/?", RegexOptions.IgnoreCase) == false)
             {
                 Hashtable friendlyUrlIndex = null; //the friendly url index is the lookup we use
                 //try and match incoming friendly url path to what we would expect from the module
-                //look for article id
                 Regex articleUrlRegex = new Regex(@"(?<l>/)?aid/(?<aid>\d+)", RegexOptions.IgnoreCase);
                 Match articleUrlMatch = articleUrlRegex.Match(friendlyUrlPath);
                 if (articleUrlMatch.Success)
                 {
-                    
-                     string rawId = articleUrlMatch.Groups["aid"].Value;
-                    int articleId = 0;
-                    if (int.TryParse(rawId, out articleId))
-                    {
 
+                    //this is a article Url we want to try and modify
+                    string rawId = articleUrlMatch.Groups["aid"].Value;
+                    int aId = 0;
+                    if (int.TryParse(rawId, out aId))
+                    {
                         //we have obtained the articleId out of the Url
                         //get the friendlyUrlIndex (it comes from the database via the cache)
                         friendlyUrlIndex = UrlController.GetFriendlyUrlIndex(tab.PortalID, this, options);
                         if (friendlyUrlIndex != null)
                         {
                             //item urls are indexed with i + itemId ("i5") - this is so we could mix and match entities if necessary
-                            string furlkey = FriendlyUrlInfo.MakeKey("article", articleId);  //create the lookup key for the friendly url index
+                            string furlkey = FriendlyUrlInfo.MakeKey("article", aId);  //create the lookup key for the friendly url index
                             string path = null;
                             //check for a child pages / article ID in the index first
                             if (ArticlePagePathTabId > -1 && tab.ParentId == ArticlePagePathTabId)
@@ -57,7 +62,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                                 //don't normally expect to have a no-match with a friendly url path when an itemId was in the Url.
                                 //could be a new item that has been created and isn't in the index
                                 //do a direct call and find out if it's there
-                                path = UrlController.CheckForMissingItemId(articleId, "article", tab.PortalID, this, options, ref messages);
+                                path = UrlController.CheckForMissingItemId(aId, "article", tab.PortalID, this, options, ref messages);
                             }
                             if (path != null) //got a valid path
                             {
@@ -83,8 +88,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                     }
                 }
             }
-
-                throw new NotImplementedException();
+            return friendlyUrlPath;
         }
 
         public override bool CheckForRedirect(int tabId, int portalid, string httpAlias, Uri requestUri, NameValueCollection queryStringCol, FriendlyUrlOptions options, out string redirectLocation, ref List<string> messages)
@@ -255,7 +259,8 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         internal new string CleanNameForUrl(string title, FriendlyUrlOptions options)
         {
             bool replaced = false;
-            //the base module Url PRovider contains a Url cleaning routine, which will remove illegal and unwanted characters from a string, using the specific friendly url options
+            //the base module Url PRovider contains a Url cleaning routine, which will remove illegal 
+            //and unwanted characters from a string, using the specific friendly url options
             return base.CleanNameForUrl(title, options, out replaced);
         }
         internal int ArticlePagePathTabId

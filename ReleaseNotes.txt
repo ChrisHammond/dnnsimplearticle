@@ -1,5 +1,6 @@
 ﻿<h3>v00.02.07</h3>
-Added PermaLink for Articles to control URL for articles.
+Added PermaLink for Articles table to control URL for articles.
+Added UrlProvider for all article links. Defaults to the Title of an article with only alphanumeric characters.
 
 <h3>v00.02.06</h3>
 Added template for FlexibleList display type.

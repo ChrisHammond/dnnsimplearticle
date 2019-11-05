@@ -54,6 +54,63 @@ GO
 
 
 
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}{objectQualifier}dnnsimplearticle_CleanString') AND type IN ( N'FN', N'IF', N'TF', N'FS', N'FT' ))
+	DROP FUNCTION {databaseOwner}{objectQualifier}dnnsimplearticle_CleanString
+GO
+
+
+
+ CREATE FUNCTION {databaseOwner}{objectQualifier}dnnsimplearticle_CleanString
+ 
+/*******************************************************************************
+
+ Purpose:
+ Given a string and a pattern of characters to remove, remove the patterned
+ characters from the string.
+ Usage:
+--===== Basic Syntax Example
+ SELECT CleanedString = dbo.CleanString(@pSomeString,@pPattern)
+;
+
+--===== Remove all but Alpha characters
+ SELECT CleanedString = dbo.CleanString(st.SomeString,'%[^A-Za-z]%');
+   FROM dbo.SomeTable st
+;
+--===== Remove all but Numeric digits
+ SELECT CleanedString = dbo.CleanString(st.SomeString,'%[^0-9]%');
+  FROM dbo.SomeTable st
+
+ Programmer Notes:
+ 1. @pPattern is case sensitive.
+ 2. The pattern set of characters must be for just one character.
+ Revision History:
+ Rev 00 - Circa 2007 - Author Unknown
+        - Initial find on the web
+ Rev 01 - 29 Mar 2007 - Jeff Moden
+        - Optimize to remove one instance of PATINDEX from the loop.
+        - Add code to use the pattern as a parameter.
+ Rev 02 - 26 May 2013 - Jeff Moden
+        - Add case sensitivity
+*******************************************************************************/
+        (@pString VARCHAR(8000),@pPattern VARCHAR(100))
+
+RETURNS VARCHAR(8000) AS
+
+  BEGIN
+
+        DECLARE @Pos SMALLINT;
+         SELECT @Pos = PATINDEX(@pPattern,@pString COLLATE Latin1_General_BIN);
+          WHILE @Pos > 0
+         SELECT @pString = STUFF(@pString,@Pos,1,''),
+                @Pos = PATINDEX(@pPattern,@pString COLLATE Latin1_General_BIN);
+ RETURN @pString;
+ END
+
+
+GO
+
+
+
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticles]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
 	DROP PROCEDURE {databaseOwner}{objectQualifier}DNNSimpleArticle_spGetArticles
 GO
@@ -127,8 +184,8 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticleU
 AS 
    BEGIN
 		SELECT    
-			a.Id,			
-			CPL.MetaDataValue as 'PermaLink'
+			a.Id,
+			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z]%') ELSE CPL.MetaDataValue END 			as 'PermaLink'
 		FROM
 			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
 			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
@@ -152,8 +209,8 @@ CREATE PROCEDURE {databaseOwner}[{objectQualifier}DNNSimpleArticle_spGetArticleU
 AS 
    BEGIN
 		SELECT    
-			a.Id,			
-			CPL.MetaDataValue as 'PermaLink'
+			a.Id,		
+			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z]%') ELSE CPL.MetaDataValue END 			as 'PermaLink'
 		FROM
 			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
 			INNER JOIN {databaseOwner}{objectQualifier}ContentItems AS CI ON a.ContentItemId = CI.ContentItemID
