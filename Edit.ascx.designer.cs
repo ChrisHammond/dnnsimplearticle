@@ -19,7 +19,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl lblTitle;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblTitle;
         
         /// <summary>
         /// txtTitle control.
@@ -46,7 +46,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl lblPermaLink;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblPermaLink;
         
         /// <summary>
         /// txtPermaLink control.
@@ -65,7 +65,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPermaLink;
-
+        
         /// <summary>
         /// txtDescription control.
         /// </summary>
@@ -100,8 +100,8 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl lblImage;
-
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblImage;
+        
         /// <summary>
         /// urlImage control.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.UrlControl urlImage;
-
+        
         /// <summary>
         /// txtBody control.
         /// </summary>
@@ -127,7 +127,7 @@ namespace Christoc.Modules.dnnsimplearticle {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl lblTerms;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblTerms;
         
         /// <summary>
         /// tsTerms control.

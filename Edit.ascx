@@ -16,7 +16,7 @@
     <fieldset>
         <div class="dnnFormItem">
             <dnn:label ID="lblTitle" ControlName="txtTitle" runat="server" />
-            <asp:TextBox ID="txtTitle" runat="server" Columns="50" /><asp:RequiredFieldValidator
+            <asp:TextBox ID="txtTitle" runat="server" Columns="50" CssClass="txtTitle" /><asp:RequiredFieldValidator
                 ID="rfvTitle" runat="server" ControlToValidate="txtTitle" CssClass="NormalRed" />
         </div>
     </fieldset>
@@ -25,7 +25,7 @@
 
         <div class="dnnFormItem">
              <dnn:label ID="lblPermaLink" ControlName="txtPermaLink" runat="server" />
-            <asp:TextBox ID="txtPermaLink" runat="server" Columns="50" /><asp:RequiredFieldValidator
+            <asp:TextBox ID="txtPermaLink" runat="server" Columns="50" CssClass="txtPermaLink" /><asp:RequiredFieldValidator
                 ID="rfvPermaLink" runat="server" ControlToValidate="txtPermaLink" CssClass="NormalRed" />
         </div>
 
@@ -94,6 +94,12 @@
                 dnnSimpleArticleSettings();
             });
         });
+
+        //TODO: don't fire this if the article already exists and has a value in permalink?
+        $('.txtTitle').on('keyup', function () {
+            $('.txtPermaLink').val($(this).val().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').toLowerCase());
+        });
+
 
     }(jQuery, window.Sys));
 </script>
