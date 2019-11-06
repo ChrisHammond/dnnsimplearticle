@@ -177,11 +177,15 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                     }
                     queryStringIndex = UrlController.GetQueryStringIndex(portalId, this, options, false);
                     List<string> keepParms = new List<string>();
-                    
+
                     //TODO: look at making this work for date format/path, will need to figure out how to regex match then pull the date formated content out, this might fix the URL issues for not including the page name
                     string lookupPath = path;
                     //if (string.IsNullOrEmpty(UrlPath) == false && lookupPath.StartsWith(UrlPath))
                     //    lookupPath = lookupPath.Substring(UrlPath.Length);
+
+                    //lookupPath = Regex.Replace(lookupPath, "\\b(?<year>\\d{2,4})/(?<month>\\d{1,2})\\b", UrlDateFormat);
+                    //if (lookupPath.Contains(UrlDateFormat))
+                    //    lookupPath = lookupPath.Substring(UrlDateFormat.Length);
 
                     for (int i = urlParms.GetUpperBound(0); i >= 0; i--)
                     {
@@ -189,6 +193,12 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                         string urlParm = urlParms[i];
                         string qsKey = lookupPath.ToLower();
                         string qs = (string)queryStringIndex[qsKey];
+
+                        if (qs == null)
+                        {
+                            qs = (string)queryStringIndex[path.ToLower()];
+                        }
+
                         if (qs != null)
                         {
                             //found a querystring match
@@ -280,7 +290,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                 return hideArticlePagePath;
             }
         }
-       
+
         internal string UrlDateFormat
         {
             get
@@ -291,10 +301,5 @@ namespace Christoc.Modules.dnnsimplearticle.Components
             }
         }
         #endregion
-
     }
-
-
-
-
 }
