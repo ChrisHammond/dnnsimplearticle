@@ -38,7 +38,8 @@ SELECT
 	CI.Indexed,
 	CIMt.MetaDataValue as 'ThumbImg',
 	CIMl.MetaDataValue as 'LargeImg',
-	CPL.MetaDataValue as 'PermaLink'
+/*	CPL.MetaDataValue as 'PermaLink' */
+	CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z0-9 ]%') ELSE CPL.MetaDataValue END as 'PermaLink'
 
 FROM
 	{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a
@@ -153,7 +154,8 @@ AS
 			CI.Indexed,	
 			CIMt.MetaDataValue as 'ThumbImg',
 			CIMl.MetaDataValue as 'LargeImg',
-			CPL.MetaDataValue as 'PermaLink',
+			/*CPL.MetaDataValue as 'PermaLink',*/
+			CASE WHEN CPL.MetaDataValue IS NULL THEN dbo.dnnsimplearticle_CleanString(a.Title, '%[^A-Za-z0-9 ]%') ELSE CPL.MetaDataValue END as 'PermaLink',
 			ROW_NUMBER() OVER ( ORDER BY a.CreatedOnDate DESC) AS RowNumber
 		FROM
 			{databaseOwner}{objectQualifier}DNNSimpleArticle_Article a

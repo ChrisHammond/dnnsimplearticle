@@ -19,15 +19,16 @@
             <asp:TextBox ID="txtTitle" runat="server" Columns="50" CssClass="txtTitle" /><asp:RequiredFieldValidator
                 ID="rfvTitle" runat="server" ControlToValidate="txtTitle" CssClass="NormalRed" />
         </div>
+        <div class="dnnFormItem">
+            <dnn:label ID="lblPermaLink" ControlName="txtPermaLink" runat="server" />
+            <asp:TextBox ID="txtPermaLink" runat="server" Columns="50" CssClass="txtPermaLink" /><asp:RequiredFieldValidator
+                ID="rfvPermaLink" runat="server" ControlToValidate="txtPermaLink" CssClass="NormalRed" />
+        </div>
+
     </fieldset>
     <h2 id="H1" class="dnnFormSectionHead"><a href="" class="dnnSectionExpanded"><%=LocalizeString("Description")%></a></h2>
     <fieldset>
 
-        <div class="dnnFormItem">
-             <dnn:label ID="lblPermaLink" ControlName="txtPermaLink" runat="server" />
-            <asp:TextBox ID="txtPermaLink" runat="server" Columns="50" CssClass="txtPermaLink" /><asp:RequiredFieldValidator
-                ID="rfvPermaLink" runat="server" ControlToValidate="txtPermaLink" CssClass="NormalRed" />
-        </div>
 
         <div class="dnnFormItem">
 
