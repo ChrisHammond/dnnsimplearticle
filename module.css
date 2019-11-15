@@ -2,6 +2,11 @@
     font-size: 15px;
 }
 
+.ArticleAuthor{font-size:1em;}
+.ArticleBody {
+    padding-top: 1em;
+}
+
 .ArticleWrapper {
     padding-bottom: 15px;
     clear: both;

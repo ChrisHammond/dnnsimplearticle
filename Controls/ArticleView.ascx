@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
 
 <h1><asp:Panel ID="plArticleTitle" runat="server" CssClass="Head" /></h1>
-<asp:Panel runat="server" ID="pnlAuthorInfo"></asp:Panel>
+<asp:Panel runat="server" ID="pnlAuthorInfo" CssClass="ArticleAuthor"></asp:Panel>
 <asp:Panel ID="plArticleBody" runat="server" CssClass="Normal ArticleBody" />
 
 
