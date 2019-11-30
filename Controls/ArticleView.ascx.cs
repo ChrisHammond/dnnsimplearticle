@@ -33,6 +33,7 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
 using Globals = DotNetNuke.Common.Globals;
+using System.Web.UI.HtmlControls;
 
 namespace Christoc.Modules.dnnsimplearticle.Controls
 {
@@ -90,13 +91,48 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                             var tp = (CDefault)Page;
                             tp.Title = curArticle.Title;
 
+                            var OpenGraphTitle = new HtmlMeta();
+                            OpenGraphTitle.Attributes.Add("property", "og:title");
+                            OpenGraphTitle.Content = DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Title),
+                                                                                false);
+                            Page.Header.Controls.Add(OpenGraphTitle);
+
                             //we need to strip HTML from the description                    
                             tp.Description =
                                 DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Description),
                                                                                 false);
 
+
+                            var OpenGraphDesc = new HtmlMeta();
+                            OpenGraphDesc.Attributes.Add("property", "og:description");
+                            OpenGraphDesc.Content = DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Description),
+                                                                                false);
+                            Page.Header.Controls.Add(OpenGraphDesc);
+
+
                             var listOfTerms = curArticle.Terms.ToDelimittedString(",");
                             tp.KeyWords += "," + listOfTerms;
+
+                            var mi2 = mc.GetModule(ModuleId);
+
+                            var OpenGraphUrl = new HtmlMeta();
+                            OpenGraphUrl.Attributes.Add("property", "og:url");
+                            OpenGraphUrl.Content = ArticleController.GetArticleLink(mi2.TabID, Convert.ToInt32(curArticle.ArticleId));
+                            Page.Header.Controls.Add(OpenGraphUrl);
+                            
+                            var OpenGraphType = new HtmlMeta();
+                            OpenGraphType.Attributes.Add("property", "og:type");
+                            OpenGraphType.Content = "Article";
+                            Page.Header.Controls.Add(OpenGraphType);
+
+                            string baseUrl = (Request.IsSecureConnection ? "https://" : "http://") + base.PortalAlias.HTTPAlias;
+
+                            var OpenGraphImg = new HtmlMeta();
+                            OpenGraphImg.Attributes.Add("property", "og:image");
+                            OpenGraphImg.Content = baseUrl + curArticle.ImageUrl;
+                            Page.Header.Controls.Add(OpenGraphImg);
+
+
 
                             if (!IsEditable)
                             {
