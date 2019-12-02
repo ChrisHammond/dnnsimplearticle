@@ -55,12 +55,12 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                         if (curArticle != null)
                         {
                             plArticleTitle.Controls.Add(new LiteralControl(curArticle.Title));
-                            
+
                             //display the author name
-                            pnlAuthorInfo.Controls.Add(new LiteralControl(string.Format(Localization.GetString("AuthorInfo",LocalResourceFile),curArticle.CreatedByUser)));
+                            pnlAuthorInfo.Controls.Add(new LiteralControl(string.Format(Localization.GetString("AuthorInfo", LocalResourceFile), curArticle.CreatedByUser)));
 
                             plArticleBody.Controls.Add(new LiteralControl(Server.HtmlDecode(curArticle.Body)));
-                            
+
 
                             //display categories in the TagsControl
 
@@ -102,13 +102,16 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                                 DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Description),
                                                                                 false);
 
-
-                            var OpenGraphDesc = new HtmlMeta();
-                            OpenGraphDesc.Attributes.Add("property", "og:description");
-                            OpenGraphDesc.Content = DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Description),
-                                                                                false);
-                            Page.Header.Controls.Add(OpenGraphDesc);
-
+                            //TODO:
+                            if (DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Description),
+                                                                                    false) != string.Empty)
+                            {
+                                var OpenGraphDesc = new HtmlMeta();
+                                OpenGraphDesc.Attributes.Add("property", "og:description");
+                                OpenGraphDesc.Content = DotNetNuke.Common.Utilities.HtmlUtils.StripTags(Server.HtmlDecode(curArticle.Description),
+                                                                                    false);
+                                Page.Header.Controls.Add(OpenGraphDesc);
+                            }
 
                             var listOfTerms = curArticle.Terms.ToDelimittedString(",");
                             tp.KeyWords += "," + listOfTerms;
@@ -119,7 +122,8 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                             OpenGraphUrl.Attributes.Add("property", "og:url");
                             OpenGraphUrl.Content = ArticleController.GetArticleLink(mi2.TabID, Convert.ToInt32(curArticle.ArticleId));
                             Page.Header.Controls.Add(OpenGraphUrl);
-                            
+
+                            //TODO: figure out a way to let someone configure this 
                             var OpenGraphType = new HtmlMeta();
                             OpenGraphType.Attributes.Add("property", "og:type");
                             OpenGraphType.Content = "Article";
@@ -127,11 +131,13 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
 
                             string baseUrl = (Request.IsSecureConnection ? "https://" : "http://") + base.PortalAlias.HTTPAlias;
 
-                            var OpenGraphImg = new HtmlMeta();
-                            OpenGraphImg.Attributes.Add("property", "og:image");
-                            OpenGraphImg.Content = baseUrl + curArticle.ImageUrl;
-                            Page.Header.Controls.Add(OpenGraphImg);
-
+                            if (curArticle.ImageUrl != null && curArticle.ImageUrl != string.Empty)
+                            {
+                                var OpenGraphImg = new HtmlMeta();
+                                OpenGraphImg.Attributes.Add("property", "og:image");
+                                OpenGraphImg.Content = baseUrl + curArticle.ImageUrl;
+                                Page.Header.Controls.Add(OpenGraphImg);
+                            }
 
 
                             if (!IsEditable)
@@ -148,7 +154,7 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                         {
                             //no article found
                             ArticleTags.Visible = ArticleAdmin.Visible = false;
-                            plArticleTitle.Controls.Add(new LiteralControl(Localization.GetString("noArticle.Text",LocalResourceFile)));
+                            plArticleTitle.Controls.Add(new LiteralControl(Localization.GetString("noArticle.Text", LocalResourceFile)));
                         }
                     }
                 }
