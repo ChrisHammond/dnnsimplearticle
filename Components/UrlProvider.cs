@@ -138,10 +138,10 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                                 }
                                 else
                                 {
-                                    DotNetNuke.Entities.Portals.PortalAliasInfo pa = DotNetNuke.Entities.Portals.PortalAliasController.GetPortalAliasInfo(httpAlias);
+                                    PortalAliasInfo pa = PortalAliasController.Instance.GetPortalAlias(httpAlias);
                                     if (pa != null)
                                     {
-                                        DotNetNuke.Entities.Portals.PortalSettings ps = new DotNetNuke.Entities.Portals.PortalSettings(tabId, pa);
+                                        PortalSettings ps = new PortalSettings(tabId, pa);
                                         redirectLocation = DotNetNuke.Common.Globals.NavigateURL(tabId, ps, "", "aid=" + articleId);
                                         doRedirect = true;
                                     }

@@ -104,3 +104,5 @@
 
     }(jQuery, window.Sys));
 </script>
+
+<asp:Literal ID="litUrls" runat="server" />
