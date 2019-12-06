@@ -2,16 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Entities.Urls;
 
 namespace Christoc.Modules.dnnsimplearticle.Components
 {
-    public class UrlProvider : DotNetNuke.Entities.Urls.ExtensionUrlProvider
+    public class UrlProvider : ExtensionUrlProvider
     {
         public override bool AlwaysUsesDnnPagePath(int portalId)
         {
