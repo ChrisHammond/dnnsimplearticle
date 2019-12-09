@@ -27,3 +27,4 @@ E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimpleart
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimplearticle.csproj.CopyComplete
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimplearticle.dll
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimplearticle.pdb
+E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimplearticle.csprojAssemblyReference.cache

@@ -207,7 +207,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         /// <param name="portalId"></param>
         /// <param name="provider"></param>
         /// <param name="options"></param>
-        private static void RebuildIndexes(int portalId, UrlProvider provider, FriendlyUrlOptions options)
+        internal static void RebuildIndexes(int portalId, UrlProvider provider, FriendlyUrlOptions options)
         {
             Hashtable queryStringIndex = null;
             Hashtable friendlyUrlIndex = null;

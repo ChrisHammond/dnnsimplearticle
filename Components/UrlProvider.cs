@@ -61,6 +61,11 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                                 //could be a new item that has been created and isn't in the index
                                 //do a direct call and find out if it's there
                                 path = UrlController.CheckForMissingItemId(aId, "article", tab.PortalID, this, options, ref messages);
+                                if(path!=null)
+                                {
+                                    //if a call came in that didn't have a path, but does exist, let's go ahead and force a rebuild
+                                    UrlController.RebuildIndexes(tab.PortalID, this, options);
+                                }
                             }
                             if (path != null) //got a valid path
                             {

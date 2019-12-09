@@ -827,6 +827,15 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Edit.litUrls">
+            <summary>
+            litUrls control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="M:Christoc.Modules.dnnsimplearticle.Edit.Page_Load(System.Object,System.EventArgs)">
             -----------------------------------------------------------------------------
             <summary>
