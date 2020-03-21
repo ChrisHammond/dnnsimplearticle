@@ -24,7 +24,7 @@
           <SQLDebugging>False</SQLDebugging>
           <ExternalProgram>
           </ExternalProgram>
-          <StartExternalURL>http://932-2.dnndev.me/</StartExternalURL>
+          <StartExternalURL>http://dnndev.me/</StartExternalURL>
           <StartCmdLineArguments>
           </StartCmdLineArguments>
           <StartWorkingDirectory>
@@ -35,9 +35,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50978</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://932-2.dnndev.me/desktopmodules/dnnsimplearticle</IISUrl>
+          <IISUrl>http://dnndev.me/desktopmodules/dnnsimplearticle</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://932-2.dnndev.me</IISAppRootUrl>
+          <IISAppRootUrl>http://dnndev.me</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
