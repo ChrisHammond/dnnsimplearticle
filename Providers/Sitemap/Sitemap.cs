@@ -41,12 +41,12 @@ namespace Christoc.Modules.dnnsimplearticle.Providers.Sitemap
 
             foreach (Article ai in ArticleController.GetAllArticles(portalId))
             {
-
+                
                 var pageUrl = new SitemapUrl
                               {
                                   Url =
                                       ArticleController.GetArticleLink(ai.TabID, ai.ArticleId),
-                                  Priority = (float)0.5,
+                                  Priority = (float)0.9,
                                   LastModified = ai.LastModifiedOnDate,
                                   ChangeFrequency = SitemapChangeFrequency.Daily
                               };

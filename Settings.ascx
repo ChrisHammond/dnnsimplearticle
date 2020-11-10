@@ -50,4 +50,12 @@
         <asp:LinkButton ID="lnkRemoveSearchIndex" runat="server" resourcekey="lnkRemoveSearchIndex"
             OnClick="lnkRemoveSearchIndex_Click" />
     </div>
+
+
+    <div class="dnnFormItem">
+        <dnn:label ID="lblCSVOut" runat="server" ControlName="txtCSVOut" />
+        <asp:TextBox ID="txtCSVOut" runat="server" />
+    </div>
 </fieldset>
+
+

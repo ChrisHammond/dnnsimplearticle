@@ -1037,6 +1037,24 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Settings.lblCSVOut">
+            <summary>
+            lblCSVOut control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:Christoc.Modules.dnnsimplearticle.Settings.txtCSVOut">
+            <summary>
+            txtCSVOut control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="M:Christoc.Modules.dnnsimplearticle.Settings.LoadSettings">
             -----------------------------------------------------------------------------
             <summary>

@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Web;
 using Christoc.Modules.dnnsimplearticle.Data;
 using DotNetNuke.Common.Utilities;
 
@@ -152,6 +153,30 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         public static string GetArticleLink(int tabId, int articleId)
         {
             return DotNetNuke.Common.Globals.NavigateURL(tabId, String.Empty, "aid=" + articleId);
+        }
+
+
+        public static string CsvExport(int portalId)
+        {
+            var output = "";
+            List<Article> coldnnsimplearticles = ArticleController.GetAllArticles(portalId);
+            if (coldnnsimplearticles.Count != 0)
+            {
+                //Test Title,test-title,"This is the body",2010-06-27 02:30:26.487,html
+                
+                foreach (Article objArticle in coldnnsimplearticles)
+                {
+                    output += "\"" + objArticle.Title + "\",";
+                    output += GetArticleLink(objArticle.TabID,objArticle.ArticleId) + ",\"";
+                    output += HttpUtility.HtmlDecode(objArticle.Body).Replace("\"", "\"\"").Replace(Environment.NewLine, " ") + "\",";
+                    output += objArticle.CreatedOnDate.ToString("yyyy-MM-dd HH:mm:ss") + ",";
+                    output += "html,";
+                    output += objArticle.ImageUrl + "$clear$";
+
+                }
+            }
+            return output;
+
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿//
 // Christoc.com - http://www.christoc.com
-// Copyright (c) 2014-2019
+// Copyright (c) 2014-2020
 // by Christoc.com
 //
 // Originally licensed by
