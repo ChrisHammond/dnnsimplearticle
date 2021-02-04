@@ -28,6 +28,7 @@ using System.Collections.Generic;
 using System.Web;
 using Christoc.Modules.dnnsimplearticle.Data;
 using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Content.Common;
 
 namespace Christoc.Modules.dnnsimplearticle.Components
 {
@@ -166,12 +167,56 @@ namespace Christoc.Modules.dnnsimplearticle.Components
                 
                 foreach (Article objArticle in coldnnsimplearticles)
                 {
+                    var ci = Util.GetContentController().GetContentItem(objArticle.ContentItemId); ;
+                    var tagList = string.Empty;
+
+                    if (ci.Terms.Count > 1)
+                    {
+                        tagList += "[ ";
+                        foreach (var t in ci.Terms)
+                        {
+                            tagList += t.Name + ", ";
+                        }
+
+                        tagList += " ]";
+                    }
+
+
                     output += "\"" + objArticle.Title + "\",";
                     output += GetArticleLink(objArticle.TabID,objArticle.ArticleId) + ",\"";
                     output += HttpUtility.HtmlDecode(objArticle.Body).Replace("\"", "\"\"").Replace(Environment.NewLine, " ") + "\",";
                     output += objArticle.CreatedOnDate.ToString("yyyy-MM-dd HH:mm:ss") + ",";
                     output += "html,";
-                    output += objArticle.ImageUrl + "$clear$";
+                    if(objArticle.ImageUrl.IndexOf("?ver=")>0)
+                    {
+                        output += objArticle.ImageUrl.Substring(0, objArticle.ImageUrl.IndexOf("?ver=")) + ","; //remote ?ver=
+                    }
+                    else {
+                        output += objArticle.ImageUrl + ","; //remote ?ver=
+                    }
+                    
+                    
+                    output += "\"" + tagList + "\"$clear$";
+
+                    /*
+                     * 
+                     *  var mi = mc.GetModuleByDefinition(PortalId, "Content List");
+                            if (mi != null)
+                            {
+                                tagsControl.NavigateUrlFormatString = Globals.NavigateURL(mi.TabID, String.Empty, "Tag={0}");
+                                tagsControl.ContentItem =
+                                    Util.GetContentController().GetContentItem(curArticle.ContentItemId);
+                            }
+
+                            tagsControl.DataBind();
+
+                            if (tagsControl.ContentItem == null || tagsControl.ContentItem.Terms.Count < 1)
+                            {
+                                ArticleTags.Visible = false;
+                            }
+
+                     * 
+                     */
 
                 }
             }

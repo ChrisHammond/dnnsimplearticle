@@ -186,4 +186,7 @@
   <data name="lblDisplayType.Text" xml:space="preserve">
     <value>Display Type</value>
   </data>
+  <data name="lblCSVOut.Text" xml:space="preserve">
+    <value>Raw CSV output of article content, you can't change this, it's just text to copy and use elsewhere.</value>
+  </data>
 </root>

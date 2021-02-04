@@ -54,7 +54,7 @@
 
     <div class="dnnFormItem">
         <dnn:label ID="lblCSVOut" runat="server" ControlName="txtCSVOut" />
-        <asp:TextBox ID="txtCSVOut" runat="server" />
+        <asp:TextBox ID="txtCSVOut" runat="server" ReadOnly="true" />
     </div>
 </fieldset>
 

@@ -1,4 +1,7 @@
-﻿<h3>v00.02.07</h3>
+﻿<h3>v00.02.08</h3>
+Content CSV export in module settings, used primarily to shift to Jekyll. 
+
+<h3>v00.02.07</h3>
 Added PermaLink for Articles table to control URL for articles.
 Added UrlProvider for all article links. Defaults to the Title of an article with only alphanumeric characters.
 Added OpenGraph details into article view. 

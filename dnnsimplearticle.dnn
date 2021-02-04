@@ -1,13 +1,13 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="dnnsimplearticle" type="Module" version="00.02.07">
+    <package name="dnnsimplearticle" type="Module" version="00.02.08">
       <friendlyName>dnnsimplearticle</friendlyName>
       <description>An open source articles module for DotNetNuke, from Christoc.com</description>
       <iconFile>desktopmodules/dnnsimplearticle/i/SimpleArticleLogo.jpg</iconFile>
       <owner>
         <name>Chris Hammond</name>
         <organization>Christoc.com Software Solutions</organization>
-        <url>http://www.christoc.com</url>
+        <url>https://www.christoc.com</url>
         <email>modules@christoc.com</email>
       </owner>
       <license src="License.txt"/>
