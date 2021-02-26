@@ -24,9 +24,9 @@
         </asp:Panel>
     </ItemTemplate>
 </asp:Repeater>
-<asp:Panel ID="pnlPaging" runat="server">
+<asp:Panel ID="pnlPaging" runat="server" CssClass="pnlPaging">
     <asp:HyperLink ID="lnkPrevious" runat="server" resourcekey="lnkPrevious" Visible="false"
-        CssClass="lnkPrevious"></asp:HyperLink>
+        CssClass="lnkPrevious btn btn-secondary"></asp:HyperLink>
     <asp:HyperLink ID="lnkNext" runat="server" resourcekey="lnkNext" Visible="false"
-        CssClass="lnkNext"></asp:HyperLink>
+        CssClass="lnkNext btn btn-primary"></asp:HyperLink>
 </asp:Panel>

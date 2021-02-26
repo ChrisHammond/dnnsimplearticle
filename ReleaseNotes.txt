@@ -1,5 +1,6 @@
 ﻿<h3>v00.02.08</h3>
 Content CSV export in module settings, used primarily to shift to Jekyll. 
+Added btn btn-primary/secondary to the article list previous and next links (bootstrap)
 
 <h3>v00.02.07</h3>
 Added PermaLink for Articles table to control URL for articles.
