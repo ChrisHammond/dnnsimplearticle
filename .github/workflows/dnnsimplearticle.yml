@@ -16,16 +16,12 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
 
-        # Action to get a release downloaded, we need to get the Deploy Client release from @bdukes 
+        # Action to get a release downloaded, we need to get the Deploy Client release from @bdukes. Might be abetter way to do this without hard coding a specific version, but it works for now.
       - uses: robinraju/release-downloader@v1
         with: 
-            # The source repository path.
-            # Expected format {owner}/{repo}
-            repository: "bdukes/polydeploy"
-    
+            repository: "bdukes/polydeploy"  
             fileName: "DeployClient_00.09.03.zip"
             tag: "v0.9.3-custom"
-   
             # stick the deploy client in polydeploy folder
             out-file-path: "polydeploy"
  
@@ -37,11 +33,6 @@ jobs:
       - name: Restore NuGet Packages
         run: nuget restore dnnsimplearticle.sln
 
-#      - name: Build Module Package 
-#        run: |
-#          "c:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" dnnsimplearticle.sln /property:Configuration=Release  /t:Restore
-#        shell: cmd
-
       - name: Build and Publish Web App
         run: msbuild dnnsimplearticle.sln /p:Configuration=Release
 
@@ -52,9 +43,6 @@ jobs:
         with:
           manifestPath: dnnsimplearticle.dnn
 
-      - name: Get VersionId
-        run: echo "The Version Number is ${{ steps.getversion.outputs.versionString }}"
-
       - name: Copy Install Package to deployclient folder
         run: |
           cp install/DNNSimpleArticle_${{ steps.getversion.outputs.versionString }}_Install.zip polydeploy/out/DNNSimpleArticle_${{ steps.getversion.outputs.versionString }}_Install.zip
@@ -63,7 +51,5 @@ jobs:
       - name: Run DeployClient to upload Zip to Production
         run: |
           cd polydeploy/out
-          dir 
           DeployClient.exe --no-prompt --target-uri ${{ secrets.TARGET_URI }} --api-key ${{ secrets.API_KEY }} --encryption-key ${{ secrets.ENCRYPTION_KEY }}
         shell: cmd
-
