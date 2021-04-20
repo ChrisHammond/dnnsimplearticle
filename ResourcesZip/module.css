@@ -1,0 +1,98 @@
+.ArticleTitle {
+    font-size: 15px;
+}
+
+.ArticleAuthor{font-size:1em;}
+.ArticleBody {
+    padding-top: 1em;
+}
+
+.ArticleWrapper {
+    padding-bottom: 15px;
+    clear: both;
+}
+
+.horizontal {
+    width: 50%;
+    display: inline-block;
+}
+
+.ArticleTags {
+}
+
+.ArticleAdmin {
+}
+
+.ArticleOther {
+    clear: both;
+}
+
+    .ArticleOther .categories li, .ArticleTags .categories li {
+        display: inline;
+    }
+
+
+/*template-1 inspiration based off https://demo.kairaweb.com/#nikkon */
+
+.template-1 .article-with-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 300px;
+    -webkit-filter: grayscale(100%);
+    max-height: 300px;
+    overflow: hidden;
+}
+
+    .template-1 .article-with-img:hover {
+        -webkit-filter: grayscale(0);
+    }
+
+
+.template-1 .article-img img {
+    display: none;
+}
+
+.template-1 div.article-inner {
+    }
+
+.template-1 a.article-inner-a {
+    display: block;
+    position: absolute;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    height: 79px;
+    margin: auto;
+}
+
+    .template-1 a.article-inner-a h3 {
+        color: #fff;
+        font-size: 1.3em;
+        font-weight: normal;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+    }
+
+.template-1 .article-content-inner {
+    margin: 15px;
+    border-top: solid 1px #fff;
+    border-bottom: solid 1px #fff;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, .5);
+}
+.template-1
+
+
+
+.template-1 .col-1, .template-1 .col-2, .template-1 .col-3, .template-1 .col-4, .template-1 .col-5, .template-1 .col-6, .template-1 .col-7, .template-1 .col-8, .template-1 .col-9, .template-1 .col-10, .template-1 .col-11, .template-1 .col-12, .template-1 .col, .template-1 .col-auto, .template-1 .col-sm-1, .template-1 .col-sm-2, .template-1 .col-sm-3, .template-1 .col-sm-4, .template-1 .col-sm-5, .template-1 .col-sm-6, .template-1 .col-sm-7, .template-1 .col-sm-8, .template-1 .col-sm-9, .template-1 .col-sm-10, .template-1 .col-sm-11, .template-1 .col-sm-12, .template-1 .col-sm, .template-1 .col-sm-auto, .template-1 .col-md-1, .template-1 .col-md-2, .template-1 .col-md-3, .template-1 .col-md-4, .template-1 .col-md-5, .template-1 .col-md-6, .template-1 .col-md-7, .template-1 .col-md-8, .template-1 .col-md-9, .template-1 .col-md-10, .template-1 .col-md-11, .template-1 .col-md-12, .template-1 .col-md, .template-1 .col-md-auto, .template-1 .col-lg-1, .template-1 .col-lg-2, .template-1 .col-lg-3, .template-1 .col-lg-4, .template-1 .col-lg-5, .template-1 .col-lg-6, .template-1 .col-lg-7, .template-1 .col-lg-8, .template-1 .col-lg-9, .template-1 .col-lg-10, .template-1 .col-lg-11, .template-1 .col-lg-12, .template-1 .col-lg, .template-1 .col-lg-auto, .template-1 .col-xl-1, .template-1 .col-xl-2, .template-1 .col-xl-3, .template-1 .col-xl-4, .template-1 .col-xl-5, .template-1 .col-xl-6, .template-1 .col-xl-7, .template-1 .col-xl-8, .template-1 .col-xl-9, .template-1 .col-xl-10, .template-1 .col-xl-11, .template-1 .col-xl-12, .template-1 .col-xl, .template-1 .col-xl-auto {
+    padding: 5px;
+}
+
+.pnlPaging{
+    float:right;
+}
