@@ -3,9 +3,9 @@
 name: Deploy dnnSimpleArticle Module
 on: 
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   deploy-module:
     runs-on: windows-latest
