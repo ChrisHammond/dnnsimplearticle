@@ -1,0 +1,60 @@
+﻿# This GitHub action to build a module in release mode, and get the PolyDeploy client and upload via PolyDeploy to a website using repository secrets.
+
+name: Deploy dnnSimpleArticle Module
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  deploy-module:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2   
+
+        # Action to get a release downloaded, we need to get the Deploy Client release from @bdukes 
+      - uses: robinraju/release-downloader@v1
+        with: 
+            # The source repository path.
+            # Expected format {owner}/{repo}
+            repository: "bdukes/polydeploy"
+    
+            fileName: "DeployClient_00.09.03.zip"
+            tag: "v0.9.3-custom"
+   
+            # stick the deploy client in polydeploy folder
+            out-file-path: "polydeploy"
+ 
+      - name: Unzip PolyDeploy Client
+        run: | 
+            Expand-Archive -Path 'polydeploy\DeployClient_00.09.03.zip' -DestinationPath 'polydeploy\out\'
+        shell: powershell
+
+      - name: Build Module Package 
+        run: |
+          "c:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" dnnsimplearticle.sln /property:Configuration=Release
+        shell: cmd
+
+        # get the module's version number from the DNN manifest 
+      - name: get-version-from-dnn-manifest
+        uses: valadas/get-version-from-dnn-manifest@v1.0.1
+        id: getversion
+        with:
+          manifestPath: dnnsimplearticle.dnn
+
+      - name: Get VersionId
+        run: echo "The Version Number is ${{ steps.getversion.outputs.versionString }}"
+
+      - name: Copy Install Package to deployclient folder
+        run: |
+          cp install/dnnsimplearticle_${{ steps.getversion.outputs.versionString }}_Install.zip polydeploy/out/dnnsimplearticle_${{ steps.getversion.outputs.versionString }}_Install.zip
+        shell: cmd
+
+      - name: Run DeployClient to upload Zip to Production
+        run: |
+          cd polydeploy/out
+          dir 
+          DeployClient.exe --no-prompt --target-uri ${{ secrets.TARGET_API }} --api-key ${{ secrets.API_KEY }} --encryption-key ${{ secrets.ENCRYPTION_KEY }}
+        shell: cmd
+
