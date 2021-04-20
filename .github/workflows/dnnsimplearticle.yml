@@ -57,7 +57,7 @@ jobs:
 
       - name: Copy Install Package to deployclient folder
         run: |
-          cp install/DNNSimpleArticle__${{ steps.getversion.outputs.versionString }}_Install.zip polydeploy/out/DNNSimpleArticle_${{ steps.getversion.outputs.versionString }}_Install.zip
+          cp install/DNNSimpleArticle_${{ steps.getversion.outputs.versionString }}_Install.zip polydeploy/out/DNNSimpleArticle_${{ steps.getversion.outputs.versionString }}_Install.zip
         shell: cmd
 
       - name: Run DeployClient to upload Zip to Production
