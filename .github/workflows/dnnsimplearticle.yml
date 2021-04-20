@@ -43,7 +43,7 @@ jobs:
 #        shell: cmd
 
       - name: Build and Publish Web App
-        run: msbuild dnnsimplearticle.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+        run: msbuild dnnsimplearticle.sln /p:Configuration=Release
 
         # get the module's version number from the DNN manifest 
       - name: get-version-from-dnn-manifest
