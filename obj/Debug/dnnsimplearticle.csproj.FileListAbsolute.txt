@@ -10,7 +10,6 @@ C:\websites\dnndev.me\bin\dnnsimplearticle.xml
 C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Debug\dnnsimplearticle.dll
 C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Debug\dnnsimplearticle.pdb
 C:\Websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Debug\dnnsimplearticle.csproj.CopyComplete
-C:\Websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Debug\dnnsimplearticle.csprojAssemblyReference.cache
 C:\websites\932.dnndev.me\bin\dnnsimplearticle.dll
 C:\websites\932.dnndev.me\bin\dnnsimplearticle.pdb
 C:\websites\932.dnndev.me\bin\dnnsimplearticle.xml
@@ -28,3 +27,5 @@ E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimpleart
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimplearticle.pdb
 E:\websites\932.dnndev.me\DesktopModules\Dnnsimplearticle\obj\Debug\dnnsimplearticle.csprojAssemblyReference.cache
 C:\websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Debug\dnnsimplearticle.csproj.CoreCompileInputs.cache
+C:\Websites\dnndev.me\bin\dnnsimplearticle.dll.config
+C:\Websites\dnndev.me\DesktopModules\dnnsimplearticle\obj\Debug\dnnsimplearticle.csproj.AssemblyReference.cache
