@@ -37,6 +37,7 @@ using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
 using DotNetNuke.Web.UI.WebControls;
 using Globals = DotNetNuke.Common.Globals;
+using System.Web.Security.AntiXss;
 
 namespace Christoc.Modules.dnnsimplearticle.Controls
 {
@@ -95,7 +96,7 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                     }
                     else if (!string.Equals(queryString.GetKey(i), "LANGUAGE", StringComparison.OrdinalIgnoreCase))
                     {
-                        additionalParameters.Add(queryString.GetKey(i) + "=" + queryString[i]);
+                        additionalParameters.Add(AntiXssEncoder.UrlEncode(queryString.GetKey(i)) + "=" + AntiXssEncoder.UrlEncode(queryString[i]));
                     }
                 }
 
