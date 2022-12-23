@@ -1,6 +1,6 @@
 ﻿//
 // Christoc.com - http://www.christoc.com
-// Copyright (c) 2014-2019
+// Copyright (c) 2014-2023
 // by Christoc.com
 //
 // Originally licensed by
@@ -25,7 +25,6 @@
 
 
 using System;
-using DotNetNuke.Entities.Content.Common;
 using DotNetNuke.Entities.Modules;
 using Christoc.Modules.dnnsimplearticle.Components;
 using System.Collections.Specialized;
@@ -33,14 +32,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Web.UI.WebControls;
 using DotNetNuke.Services.Exceptions;
-using DotNetNuke.Services.Localization;
-using DotNetNuke.UI.Utilities;
-using DotNetNuke.Web.UI.WebControls;
 using Globals = DotNetNuke.Common.Globals;
 using Christoc.Modules.dnnsimplearticle.Components.Templates;
 using System.Text;
 using System.Web;
-using DotNetNuke.Entities.Tabs;
+using System.Web.Security.AntiXss;
 
 namespace Christoc.Modules.dnnsimplearticle.Controls
 {
@@ -57,8 +53,7 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
 
                 FlexibleListWrapper.Attributes.Add("class","row template-" + 1);
 
-
-                //TODO: get the template
+                //get the template
                 var t = TemplateController.GetTemplate(1);
                 var sb = new StringBuilder();
                 
@@ -137,10 +132,11 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                     }
                     else if (!string.Equals(queryString.GetKey(i), "LANGUAGE", StringComparison.OrdinalIgnoreCase))
                     {
-                        additionalParameters.Add(queryString.GetKey(i) + "=" + queryString[i]);
+                        additionalParameters.Add(AntiXssEncoder.UrlEncode(queryString.GetKey(i)) + "=" + AntiXssEncoder.UrlEncode(queryString[i]));
                     }
                 }
 
+                
                 link.NavigateUrl = Globals.NavigateURL(tabId, string.Empty, additionalParameters.ToArray());
             }
             else
