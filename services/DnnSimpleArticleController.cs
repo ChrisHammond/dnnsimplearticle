@@ -28,7 +28,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using DotNetNuke.Instrumentation;
+//using DotNetNuke.Instrumentation;
 using Christoc.Modules.dnnsimplearticle.Components;
 using Christoc.Modules.dnnsimplearticle.ViewModels;
 using DotNetNuke.Web.Api;

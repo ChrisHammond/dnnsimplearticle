@@ -1,16 +1,20 @@
 <%@ Control Language="C#" Inherits="Christoc.Modules.dnnsimplearticle.Edit" AutoEventWireup="True"
     CodeBehind="Edit.ascx.cs" %>
+<%@ Register TagPrefix="dnndep" Assembly="DotNetNuke.Web.Deprecated" Namespace="DotNetNuke.Web.UI.WebControls" %>
+<%@ Register TagPrefix="dnn" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls" %>
+<%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
+<%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web.Deprecated" Namespace="DotNetNuke.Web.UI.WebControls" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="TextEditor" Src="~/controls/TextEditor.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="URL" Src="~/controls/URLControl.ascx" %>
 <%@ Import Namespace="DotNetNuke.Services.Localization" %>
-<%@ Register TagPrefix="dnndep" Assembly="DotNetNuke.Web.Deprecated" Namespace="DotNetNuke.Web.UI.WebControls" %>
-
 
 <div class="dnnForm dnnSimpleArticleSettings dnnClear" id="dnnSimpleArticleSettings">
     <div class="dnnFormExpandContent"><a href=""><%=LocalizeString("ExpandAll")%></a></div>
 
     <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead">
+        &nbsp;</h2>
+    <h2 class="dnnFormSectionHead">
         <a href="" class="dnnSectionExpanded">
             <%=LocalizeString("BasicSettings")%></a></h2>
     <fieldset>
@@ -66,10 +70,11 @@
             <dnn:TextEditor ID="txtBody" runat="server" Width="100%" Height="400px" />
         </div>
         <div class="dnnFormItem">
-            <dnn:label ID="lblTerms" runat="server" ControlName="tsTerms" />
-            <dnndep:TermsSelector ID="tsTerms" runat="server" Height="250" Width="600" AllowCustomText="true" />
+            <dnn:label ID="lblTerms" runat="server" ControlName="cbTerms" />            
+            <dnn:DnnComboBox ID="cbTerms" runat="server" width="150px" CheckBoxes="True" EnableCheckAllItemsCheckBox="true"
+                       AllowCustomText="False" DataValueField="termId" DataTextField="Name">
+            </dnn:DnnComboBox>
         </div>
-
 
     </fieldset>
 
@@ -106,3 +111,4 @@
 </script>
 
 <asp:Literal ID="litUrls" runat="server" />
+
