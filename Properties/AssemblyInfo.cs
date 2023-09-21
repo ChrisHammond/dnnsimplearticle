@@ -33,11 +33,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 //
 [assembly: AssemblyTitle("dnnsimplearticle")]
-[assembly: AssemblyDescription("A DotNetNuke Module for displaying articles")]
+[assembly: AssemblyDescription("A DotNetNuke (DNN) Module for displaying articles")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("2019 Christoc.com Software Solutions")]
+[assembly: AssemblyCopyright("2019-2023 Christoc.com Software Solutions")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
