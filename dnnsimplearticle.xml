@@ -800,9 +800,9 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:Christoc.Modules.dnnsimplearticle.Edit.tsTerms">
+        <member name="F:Christoc.Modules.dnnsimplearticle.Edit.lstTerms">
             <summary>
-            tsTerms control.
+            lstTerms control.
             </summary>
             <remarks>
             Auto-generated field.

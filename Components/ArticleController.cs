@@ -25,10 +25,15 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
+using System.Web.UI;
 using Christoc.Modules.dnnsimplearticle.Data;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Content.Common;
+using DotNetNuke.Entities.Portals;
+using DotNetNuke.Entities.Tabs;
+using DotNetNuke.Framework;
 
 namespace Christoc.Modules.dnnsimplearticle.Components
 {
@@ -153,9 +158,22 @@ namespace Christoc.Modules.dnnsimplearticle.Components
 
         public static string GetArticleLink(int tabId, int articleId)
         {
-            return DotNetNuke.Common.Globals.NavigateURL(tabId, String.Empty, "aid=" + articleId);
+            TabInfo tabInfo;
+            var tabController = new TabController();
+            var a = GetArticle(articleId);
+
+            tabInfo = tabController.GetTab(tabId, a.PortalId, false);
+
+            return DotNetNuke.Common.Globals.FriendlyUrl(tabInfo, tabInfo.TabPath.Replace("//","/"), a.PermaLink, new PortalSettings(-1, GetPortalAliasInfo(a.PortalId)));
+            //return DotNetNuke.Common.Globals.NavigateURL(tabId, String.Empty, "aid=" + articleId);
         }
 
+        private static PortalAliasInfo GetPortalAliasInfo(int portalId)
+        {
+            var portalAliases = PortalAliasController.Instance.GetPortalAliasesByPortalId(portalId);//.GetPortalAliasesByPortalId(portalId);
+
+            return portalAliases != null && portalAliases.Count<PortalAliasInfo>() > 0 ? portalAliases.ElementAt<PortalAliasInfo>(0) : null;
+        }
 
         public static string CsvExport(int portalId)
         {

@@ -132,13 +132,13 @@ namespace Christoc.Modules.dnnsimplearticle
         protected global::DotNetNuke.UI.UserControls.LabelControl lblTerms;
 
         /// <summary>
-        /// cbTerms control.
+        /// lstTerms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.Web.UI.WebControls.DnnComboBox cbTerms;
+        protected global::System.Web.UI.WebControls.ListBox lstTerms;
 
         /// <summary>
         /// lbSave control.

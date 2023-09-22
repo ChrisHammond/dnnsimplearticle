@@ -24,9 +24,12 @@
 //
 
 using System;
+using System.Text.RegularExpressions;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Entities.Content;
 using DotNetNuke.Services.FileSystem;
+using System.Text.RegularExpressions;
+
 
 namespace Christoc.Modules.dnnsimplearticle.Components
 {
@@ -136,10 +139,32 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         }
 
 
+        private string permaLink;
         public string PermaLink
         {
-            get;set;
+            get
+            {
+                if (string.IsNullOrEmpty(permaLink) && !string.IsNullOrEmpty(Title) )
+                {
+                    string cleanedTitle = Regex.Replace(Title.ToLower(), @"[^a-z0-9\s]+", "-");
+                    return cleanedTitle.Replace(" ", "-");
+                }
+                
+                if(permaLink.Contains(" "))
+                {
+                    string cleanedTitle = Regex.Replace(permaLink.ToLower(), @"[^a-z0-9\s]+", "-");
+                    return cleanedTitle.Replace(" ", "-");
+                }
+
+                return permaLink;
+            }
+            set
+            {
+                permaLink = value;
+            }
         }
+
+
 
 
         ///<summary>
@@ -152,7 +177,7 @@ namespace Christoc.Modules.dnnsimplearticle.Components
         }
 
 
-        
+
 
         #region IHydratable Implementation
 

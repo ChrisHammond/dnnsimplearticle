@@ -71,9 +71,9 @@
         </div>
         <div class="dnnFormItem">
             <dnn:label ID="lblTerms" runat="server" ControlName="cbTerms" />            
-            <dnn:DnnComboBox ID="cbTerms" runat="server" width="150px" CheckBoxes="True" EnableCheckAllItemsCheckBox="true"
-                       AllowCustomText="False" DataValueField="termId" DataTextField="Name">
-            </dnn:DnnComboBox>
+            <asp:ListBox ID="lstTerms" runat="server" DataValueField="termId" DataTextField="Name" SelectionMode="Multiple"></asp:ListBox>
+
+
         </div>
 
     </fieldset>
