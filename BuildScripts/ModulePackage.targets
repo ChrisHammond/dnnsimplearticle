@@ -71,6 +71,7 @@
     <Copy SourceFiles="@(PackageManifestFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
     <Copy SourceFiles="@(PackageTxtFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
 
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\DotNetNuke.Web.Deprecated.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
 
     <!-- create the INSTALL RESOURCES.ZIP file -->
     <Copy SourceFiles="@(InstallInclude)" DestinationFolder="$(MSBuildProjectDirectory)\ResourcesZip\%(RecursiveDir)" />
@@ -99,6 +100,8 @@
     <Copy SourceFiles="@(PackageManifestFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
     <Copy SourceFiles="@(PackageTxtFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
 
+    <Copy SourceFiles="$(MSBuildDnnBinPath)\DotNetNuke.Web.Deprecated.dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+    
     <!-- create the SOURCE RESOURCES.ZIP file -->
     <Copy SourceFiles="@(SourceInclude)" DestinationFolder="$(MSBuildProjectDirectory)\ResourcesZip\%(RecursiveDir)" />
 
