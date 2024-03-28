@@ -127,9 +127,6 @@
             <assembly>
               <name>dnnsimplearticle.dll</name>
             </assembly>
-            <assembly>
-              <name>DotNetNuke.Web.Deprecated.dll</name>
-            </assembly>
 
           </assemblies>
         </component>
