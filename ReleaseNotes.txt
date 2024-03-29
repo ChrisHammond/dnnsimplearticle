@@ -4,6 +4,7 @@ Added btn btn-primary/secondary to the article list previous and next links (boo
 Add ModuleSearchBase for DNN Search integration for Articles.
 Fixed permalink urls for articles that don't have a permalink yet.
 Removed unneccessary DNN.web.deprecated references.
+Added CanonicalURL to article display. 
 
 
 <h3>v00.02.07</h3>

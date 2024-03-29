@@ -116,7 +116,10 @@ namespace Christoc.Modules.dnnsimplearticle.Controls
                             var listOfTerms = curArticle.Terms.ToDelimittedString(",");
                             tp.KeyWords += "," + listOfTerms;
 
+                            
                             var mi2 = mc.GetModule(ModuleId);
+
+                            tp.CanonicalLinkUrl = ArticleController.GetArticleLink(mi2.TabID, Convert.ToInt32(curArticle.ArticleId));
 
                             var OpenGraphUrl = new HtmlMeta();
                             OpenGraphUrl.Attributes.Add("property", "og:url");
