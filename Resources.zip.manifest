@@ -13,14 +13,6 @@
       <name>FlexibleList.ascx.resx</name>
     </file>
     <file>
-      <path>.vs/dnnsimplearticle/v17/</path>
-      <name>HierarchyCache.v1.txt</name>
-    </file>
-    <file>
-      <path>scripts/</path>
-      <name>DnnSimpleArticle.js</name>
-    </file>
-    <file>
       <path>App_LocalResources/</path>
       <name>Edit.ascx.resx</name>
     </file>
@@ -47,6 +39,10 @@
     <file>
       <path>Controls/</path>
       <name>FlexibleList.ascx</name>
+    </file>
+    <file>
+      <path>scripts/</path>
+      <name>DnnSimpleArticle.js</name>
     </file>
     <file>
       <path />

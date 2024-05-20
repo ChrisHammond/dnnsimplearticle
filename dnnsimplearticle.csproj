@@ -58,24 +58,21 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetNuke, Version=9.11.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetNuke.Core.9.11.2\lib\net45\DotNetNuke.dll</HintPath>
+    <Reference Include="DotNetNuke, Version=9.13.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.dll</HintPath>
     </Reference>
     <Reference Include="DotNetNuke.Abstractions, Version=9.11.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\DotNetNuke.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetNuke.DependencyInjection, Version=9.11.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetNuke.DependencyInjection.9.11.2\lib\netstandard2.0\DotNetNuke.DependencyInjection.dll</HintPath>
+    <Reference Include="DotNetNuke.Instrumentation, Version=9.13.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.Instrumentation.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetNuke.Instrumentation, Version=9.11.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetNuke.Instrumentation.9.11.2\lib\net45\DotNetNuke.Instrumentation.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetNuke.log4net, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetNuke.Instrumentation.9.11.2\lib\net45\DotNetNuke.log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="DotNetNuke.Web, Version=9.11.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetNuke.Web.9.11.2\lib\net45\DotNetNuke.Web.dll</HintPath>
+    <Reference Include="DotNetNuke.Web, Version=9.13.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\DotNetNuke.Web.dll</HintPath>
     </Reference>
     <Reference Include="DotNetNuke.Web.Client, Version=9.11.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -85,7 +82,8 @@
       <HintPath>packages\DotNetNuke.Web.9.11.2\lib\net45\DotNetNuke.WebUtility.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DotNetNuke.Core.9.11.2\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
@@ -254,6 +252,7 @@
     <None Include="Providers\DataProviders\SqlDataProvider\00.01.00.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\00.02.06.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\00.02.07.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\00.02.09.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />
     <Content Include="README.MD" />

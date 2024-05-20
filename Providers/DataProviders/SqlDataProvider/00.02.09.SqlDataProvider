@@ -1,0 +1,33 @@
+﻿IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'{databaseOwner}{objectQualifier}dnnsimplearticle_CleanString') AND type IN ( N'FN', N'IF', N'TF', N'FS', N'FT' ))
+	DROP FUNCTION {databaseOwner}{objectQualifier}dnnsimplearticle_CleanString
+GO
+
+
+
+ CREATE FUNCTION {databaseOwner}{objectQualifier}dnnsimplearticle_CleanString
+ 
+
+        (@pString VARCHAR(8000),@pPattern VARCHAR(100))
+
+RETURNS VARCHAR(8000) AS
+
+BEGIN
+    DECLARE @Pos SMALLINT;
+
+    -- Remove unwanted characters based on the pattern
+    SELECT @Pos = PATINDEX(@pPattern, @pString COLLATE Latin1_General_BIN);
+    WHILE @Pos > 0
+    BEGIN
+        SELECT @pString = STUFF(@pString, @Pos, 1, ''),
+               @Pos = PATINDEX(@pPattern, @pString COLLATE Latin1_General_BIN);
+    END
+
+    -- Convert to lowercase
+    SET @pString = LOWER(@pString);
+    
+    -- Replace spaces with hyphens
+    SET @pString = REPLACE(@pString, ' ', '-');
+
+    RETURN @pString;
+END
+GO
